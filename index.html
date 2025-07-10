@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>FreePort | On-Chain Structured Products Marketplace</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;500;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo-img-wrap">
+      <img src="freeport.png" alt="FreePort Logo" class="logo-img" />
+      <div class="logo-text">FreePort</div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#how">How It Works</a>
+      <a href="#market">Market</a>
+      <a href="#advantage">Advantage</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+      <source src="waves.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1 class="hero-headline">The Marketplace For<br>Alternative Investments</h1>
+      <p class="hero-subtitle">Customize and Trade Structured Derivatives. <br>Composable, Liquid, Verifiable, Secure.</p>
+      <a class="cta" href="#contact">Join Waitlist</a>
+    </div>
+  </section>
+  <section class="products-showcase-section">
+    <div class="product-row">
+      <img src="lookback.png" alt="Lookback Option" class="product-img" />
+      <div class="product-desc">
+        <h3>Lookback Option</h3>
+        <p>You lock in your strike up front, then automatically capture the absolute peak (or trough) the asset hits. It’s designed for anyone who wants to seize the best market swings without obsessing over timing.</p>
+      </div>
+    </div>
+    <div class="product-row">
+      <img src="rainbow.png" alt="Rainbow Option" class="product-img" />
+      <div class="product-desc">
+        <h3>Rainbow (Multi-Asset) Option</h3>
+        <p>Bundle multiple assets in one trade and ride whichever one outperforms (or hedge the weakest). It’s a streamlined way to diversify or home in on the winner without juggling separate positions.</p>
+      </div>
+    </div>
+    <div class="product-row">
+      <img src="range.png" alt="Range Option" class="product-img" />
+      <div class="product-desc">
+        <h3>Range Option</h3>
+        <p>Think of it as “buy low, sell high” on autopilot: you stand to gain from every up-and-down move over the term, no directional call required.</p>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <form class="signup-form">
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Join Waitlist</button>
+    </form>
+    <p class="disclaimer">&copy; 2024 FreePort. All rights reserved.</p>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <span>Built by FreePort</span>
+    </div>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = Array.from(document.querySelectorAll('.product-card'));
+  const prevBtn = document.querySelector('.product-cards-prev');
+  const nextBtn = document.querySelector('.product-cards-next');
+  let center = 0;
+
+  function showCards(idx) {
+    cards.forEach((card, i) => {
+      card.classList.remove('left', 'center', 'right');
+      if (i === idx) {
+        card.classList.add('center');
+      } else if (i === (idx - 1 + cards.length) % cards.length) {
+        card.classList.add('left');
+      } else if (i === (idx + 1) % cards.length) {
+        card.classList.add('right');
+      }
+    });
+  }
+  showCards(center);
+
+  prevBtn.addEventListener('click', () => {
+    center = (center - 1 + cards.length) % cards.length;
+    showCards(center);
+  });
+  nextBtn.addEventListener('click', () => {
+    center = (center + 1) % cards.length;
+    showCards(center);
+  });
+});
+</script>
+</body>
+</html>
