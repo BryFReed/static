@@ -15,10 +15,13 @@
       <div class="logo-text">Freeport</div>
     </div>
     <nav>
-      <a href="#offer">What We Offer</a>
-      <a href="#how">How It Works</a>
-      <a href="#vision">Our Vision</a>
-      <a href="#contact">Contact Us</a>
+      <a href="index.html" class="home-nav">Home</a>
+      <a href="#offer">Strategies</a>
+      <a href="#how">Platform</a>
+      <a href="vision.html">Vision</a>
+      <a href="contact.html">Connect</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html" class="cta-nav">Request Early Access</a>
     </nav>
   </header>
   <section class="hero">
@@ -237,31 +240,9 @@
       <p>Freeport’s <span class="tech-highlight">cross-chain protocol</span> ensures <span class="tech-highlight">atomic settlements</span> and <span class="tech-highlight">instant finality</span>. On-chain <span class="tech-highlight">margin management</span>, <span class="tech-highlight">liquidation events</span>, and <span class="tech-highlight">price oracle validation</span> occur <span class="tech-highlight">deterministically</span>. The <span class="tech-highlight">market</span> operates through <span class="tech-highlight">permissionless order books</span> and <span class="tech-highlight">RFQ protocols</span>, enabling <span class="tech-highlight">trading</span> without intermediaries. <span class="tech-highlight">Composable smart contracts</span> allow for <span class="tech-highlight">modular product design</span> and <span class="tech-highlight">cross-protocol integration</span>. All transactions are <span class="tech-highlight">immutably recorded</span> on-chain with <span class="tech-highlight">transparent audit trails</span>, ensuring <span class="tech-highlight">trustless execution</span> and <span class="tech-highlight">verifiable security</span>.</p>
     </div>
   </section>
-  
-  <section id="vision" class="section vision">
-    <video class="vision-bg-video" autoplay muted loop playsinline>
-      <source src="fakewaves.mp4" type="video/mp4">
-    </video>
-    <h2 class="vision-headline">Our Vision</h2>
-    <div class="vision-content">
-      <p>Today's <span class="vision-highlight">sophisticated financial instruments</span> are locked behind <span class="vision-highlight">exorbitant fees</span>, <span class="vision-highlight">complex documentation</span>, and <span class="vision-highlight">limited accessibility</span>. Banks charge massive <span class="vision-highlight">issuance fees</span> while hiding risks in <span class="vision-highlight">pages</span> of legal jargon instead of clear <span class="vision-highlight">payoff diagrams</span>. The <span class="vision-highlight">lack of transparency</span> creates systemic risk as no one can see the real exposures.</p>
-      
-      <p>We're <span class="vision-highlight">democratizing access</span> to these powerful tools. Our <span class="vision-highlight">market makers</span> can price any instrument for <span class="vision-highlight">any size</span>, opening doors that were once reserved for the <span class="vision-highlight">ultra-wealthy</span>. We make everything <span class="vision-highlight">liquid and transparent</span>, so you can enter and exit positions whenever you want. These products offer <span class="vision-highlight">unlimited financial expression</span>—and we trust that <span class="vision-highlight">everyone is capable</span> of making informed decisions.</p>
-      
-      <p>Join us in building the future of <span class="vision-highlight">decentralized finance</span>—where <span class="vision-highlight">zero counterparty risk</span>, <span class="vision-highlight">complete transparency</span>, and <span class="vision-highlight">true accessibility</span> make sophisticated trading available to everyone.</p>
-    </div>
-  </section>
-  
-  <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <form class="signup-form">
-      <input type="email" placeholder="Your email" required>
-      <button type="submit">Request Early Access</button>
-    </form>
-  </section>
   <footer>
     <div class="footer-content">
-      <span>Freeport and its Services are intended solely for persons located outside the United States and not for “U.S. persons” as defined under U.S. securities laws.</span>
+      <span>Trading services are available exclusively to non-U.S. persons; U.S. persons may access informational services only.</span>
     </div>
   </footer>
 <script>
@@ -274,6 +255,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const slidesPerView = 3;
   const totalSlides = slides.length;
   const originalSlides = 16; // Number of original slides (after removing 4)
+  let autoScrollInterval;
+  let isAutoScrolling = true;
 
   function updateCarousel() {
     // Show 3 products at a time, scroll by 1
@@ -315,11 +298,44 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCarousel();
   }
 
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
+  function startAutoScroll() {
+    if (autoScrollInterval) clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(() => {
+      if (isAutoScrolling) {
+        nextSlide();
+      }
+    }, 3000); // Scroll every 3 seconds
+  }
+
+  function stopAutoScroll() {
+    isAutoScrolling = false;
+  }
+
+  function resumeAutoScroll() {
+    isAutoScrolling = true;
+  }
+
+  // Event listeners for manual navigation
+  prevBtn.addEventListener('click', () => {
+    stopAutoScroll();
+    prevSlide();
+    setTimeout(resumeAutoScroll, 5000); // Resume auto-scroll after 5 seconds of inactivity
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    stopAutoScroll();
+    nextSlide();
+    setTimeout(resumeAutoScroll, 5000); // Resume auto-scroll after 5 seconds of inactivity
+  });
+
+  // Pause auto-scroll when hovering over carousel
+  const carouselContainer = document.querySelector('.carousel-container');
+  carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+  carouselContainer.addEventListener('mouseleave', resumeAutoScroll);
 
   // Initialize
   updateCarousel();
+  startAutoScroll();
 });
 </script>
 </body>
