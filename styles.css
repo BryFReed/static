@@ -1247,165 +1247,151 @@ footer {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ===== COMPREHENSIVE MOBILE FIXES ===== */
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-  header {
-    padding: 1rem 4vw;
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
-  }
-  
-  .logo-img-wrap {
-    align-self: flex-start;
-  }
-  
-  nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-start;
-  }
-  
-  nav a {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.8rem;
-    margin: 0;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-  
-  nav a.cta-nav {
-    background: #20B2AA;
-    color: white;
-    border-radius: 6px;
-    font-weight: 600;
-  }
-}
-
-/* Mobile Hero Section */
-@media (max-width: 768px) {
-  .hero {
-    padding: 2rem 4vw;
-    min-height: 60vh;
-  }
-  
-  .hero h1.hero-headline {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 2rem;
-  }
-  
-  .cta {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* Mobile Product Carousel */
-@media (max-width: 768px) {
-  .carousel-container {
-    padding: 0 1rem;
-    margin: 0 -1rem;
-  }
-  
-  .carousel-track {
-    width: 100%;
-    gap: 1rem;
-  }
-  
-  .product-slide {
-    flex: 0 0 calc(100% - 2rem);
-    min-width: calc(100% - 2rem);
-    height: auto;
-    padding: 1rem;
-    border-right: none;
-    border-bottom: 1px solid #1a3a3a;
-    margin-bottom: 1rem;
-  }
-  
-  .product-slide:last-child {
-    border-bottom: none;
-  }
-  
-  .product-img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-  }
-  
-  .product-desc h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .product-desc p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  
-  .arrow-left, .arrow-right {
-    display: none;
-  }
-}
-
-/* Mobile Features Section */
 @media (max-width: 768px) {
   .features-container {
     flex-direction: column;
-    gap: 2rem;
-    padding: 0 1rem;
+    gap: 1.5rem;
   }
   
   .feature-item {
-    width: 100%;
     flex-direction: row;
     gap: 1rem;
     text-align: left;
   }
   
-  .feature-img {
-    width: 120px;
-    height: 120px;
+  .feature-symbol {
     margin-bottom: 0;
+    min-width: 120px;
+  }
+}
+
+/* Comprehensive Mobile Styles - Scale Down Approach */
+@media (max-width: 768px) {
+  /* Global scale down */
+  body {
+    font-size: 0.85em;
   }
   
-  .feature-desc {
+  /* Header & Navigation */
+  header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .logo-img {
+    height: 32px;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  nav a {
     font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    margin: 0 0.3rem;
+  }
+  
+  nav a.cta-nav {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.7rem;
+  }
+  
+  /* Hero Section */
+  .hero h1.hero-headline {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
     line-height: 1.4;
+  }
+  
+  .cta {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    min-height: 44px;
+  }
+  
+  /* Section Headers */
+  .products-header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .marketplace-tagline {
     font-size: 2rem;
-    padding: 0 1rem;
+    margin: 1.5rem 0;
   }
-}
-
-/* Mobile Team Page */
-@media (max-width: 768px) {
+  
+  .section h2 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  /* Product Carousel */
+  .carousel-container {
+    margin: 0 -1rem;
+  }
+  
+  .product-slide {
+    flex: 0 0 calc(50% - 1px);
+    padding: 0.6rem 0.4rem;
+    height: 280px;
+  }
+  
+  .product-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-desc h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .product-desc p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+  
+  .arrow-left, .arrow-right {
+    font-size: 3rem;
+    padding: 15px;
+    height: 160px;
+  }
+  
+  /* Features Section */
+  .feature-img {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .feature-symbol {
+    font-size: 1rem;
+  }
+  
+  .feature-desc {
+    font-size: 0.75rem;
+  }
+  
+  /* Team Page */
   .team-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 1rem;
-  }
-  
-  .team-member {
-    width: 100%;
-    padding: 1.5rem;
   }
   
   .member-photo {
@@ -1431,165 +1417,108 @@ footer {
   }
   
   .member-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-}
-
-/* Mobile Contact Page */
-@media (max-width: 768px) {
-  .contact-headline {
-    font-size: 2.2rem;
-    padding: 0 1rem;
+    font-size: 0.85rem;
   }
   
-  .contact-content {
-    padding: 0 1rem;
-  }
-  
-  .contact-message {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .message-with-icon {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  .sailboat-icon,
-  .bottle-icon {
-    font-size: 4rem;
-    margin: 0;
-  }
-}
-
-/* Mobile Early Access Page */
-@media (max-width: 768px) {
-  .section#early-access {
-    padding: 2rem 1rem;
-  }
-  
+  /* Early Access Page */
   .early-access-headline {
     font-size: 2.2rem;
-    padding: 0 1rem;
   }
   
   .early-access-subtitle {
     font-size: 1rem;
-    padding: 0 1rem;
   }
   
   .form-container {
-    padding: 1rem;
-    margin: 0 1rem;
+    padding: 1.5rem;
   }
   
   .form-container iframe {
     height: 600px;
   }
-}
-
-/* Mobile Vision Page */
-@media (max-width: 768px) {
-  .vision-headline {
+  
+  /* Contact Page */
+  .contact-headline {
     font-size: 2.2rem;
-    padding: 0 1rem;
   }
   
-  .vision-content {
-    padding: 0 1rem;
+  .contact-message {
+    font-size: 1rem;
+  }
+  
+  .sailboat-icon, .bottle-icon {
+    font-size: 4rem;
+    margin-top: -0.8rem;
+  }
+  
+  /* How It Works Section */
+  .how-headline {
+    font-size: 2rem;
+  }
+  
+  .diagram-step h4 {
+    font-size: 1.1rem;
+  }
+  
+  .diagram-step p {
+    font-size: 0.9rem;
+  }
+  
+  .step-img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Footer */
+  .footer-content {
+    font-size: 0.8rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Product Cards */
+  .product-cards-title {
+    font-size: 2rem;
+  }
+  
+  .product-card {
+    padding: 1.5rem 1rem;
+    min-width: 85vw;
+  }
+  
+  .product-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .product-card p {
+    font-size: 0.9rem;
+  }
+  
+  /* Vision Page */
+  .vision-headline {
+    font-size: 2.2rem;
   }
   
   .vision-content p {
     font-size: 1rem;
     line-height: 1.6;
   }
-}
-
-/* Mobile General Layout */
-@media (max-width: 768px) {
-  .section {
-    padding: 2rem 1rem;
-  }
   
-  .products-header {
-    font-size: 2.2rem;
-    padding: 0 1rem;
-  }
-  
-  .products-showcase-section {
-    padding: 2rem 0;
-  }
-  
-  footer {
-    padding: 1rem;
-  }
-  
-  .footer-content {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-}
-
-/* Extra Small Mobile Devices */
-@media (max-width: 480px) {
-  .hero h1.hero-headline {
-    font-size: 1.8rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .cta {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .early-access-headline,
-  .contact-headline,
-  .vision-headline,
-  .products-header {
-    font-size: 1.8rem;
-  }
-  
-  .marketplace-tagline {
-    font-size: 1.6rem;
-  }
-  
-  .member-name {
-    font-size: 1.3rem;
-  }
-  
-  .member-bio {
-    font-size: 0.9rem;
-  }
-  
-  .form-container iframe {
-    height: 500px;
-  }
-}
-
-/* Touch-friendly improvements */
-@media (max-width: 768px) {
-  button, 
-  .cta,
-  nav a,
-  .member-link {
+  /* Ensure touch-friendly buttons */
+  button, .cta, nav a {
     min-height: 44px;
     min-width: 44px;
   }
   
-  .product-slide {
-    cursor: pointer;
+  /* Improve spacing for mobile */
+  .message-with-icon {
+    gap: 1.5rem;
   }
   
-  .feature-item {
-    cursor: pointer;
+  .about-grid, .why-grid, .market-grid, .advantage-grid {
+    gap: 1.5rem;
+  }
+  
+  .about-card, .why-card, .market-card, .advantage-card {
+    padding: 1.5rem;
   }
 }
