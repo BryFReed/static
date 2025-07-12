@@ -108,7 +108,7 @@ nav a.cta-nav:hover {
 .team-member {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 500px;
+  max-width: 375px;
   margin: 0 auto;
 }
 
@@ -120,32 +120,39 @@ nav a.cta-nav:hover {
   margin-bottom: 1.5rem;
 }
 
-.avatar-placeholder {
-  width: 80px;
-  height: 80px;
+.avatar-link {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.avatar-link:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.member-photo {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #20B2AA, #1a3a3a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  border: 3px solid #20B2AA;
   margin: 0 auto;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: block;
+  box-shadow: 0 4px 12px rgba(32, 178, 170, 0.3);
 }
 
 .member-name {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0d2b2b;
+  color: #d4e8e8;
   margin-bottom: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .member-title {
   font-size: 1.4rem;
-  color: #0d2b2b;
+  color: #d4e8e8;
   font-weight: 600;
   margin-bottom: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -153,23 +160,44 @@ nav a.cta-nav:hover {
 
 .member-bio {
   font-size: 1.1rem;
-  color: #0d2b2b;
+  color: #d4e8e8;
   line-height: 1.6;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .member-bio .highlight {
-  color: #0d2b2b;
+  color: #d4e8e8;
   font-weight: 700;
+  transition: color 0.3s ease;
 }
 
-.member-email {
-  font-size: 0.9rem;
-  color: #0d2b2b;
-  font-weight: 600;
+.member-bio .highlight:hover {
+  color: #ffffff;
+}
+
+.member-links {
   margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.member-link {
+  font-size: 0.9rem;
+  color: #d4e8e8;
+  font-weight: 600;
+  text-decoration: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.member-link:hover {
+  opacity: 0.7;
+}
+
+.link-icon {
+  margin-right: 0.3rem;
 }
 
 @media (max-width: 768px) {
