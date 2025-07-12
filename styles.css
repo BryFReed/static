@@ -215,6 +215,67 @@ nav a.cta-nav:hover {
   }
 }
 
+/* Early Access Page Styles */
+.section#early-access {
+  background: #4a7c7c;
+  padding: 4rem 2rem;
+}
+
+.early-access-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.early-access-headline {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.early-access-subtitle {
+  font-size: 1.2rem;
+  color: #f0f8f8;
+  margin-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.form-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.form-container iframe {
+  border-radius: 8px;
+}
+
+.early-access-headline .sailboat-emoji {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 1.4, 0.6, 1);
+  will-change: transform;
+}
+.early-access-headline .sailboat-emoji:hover {
+  transform: scale(1.35) translateY(-10px) rotate(-8deg);
+}
+
+@media (max-width: 768px) {
+  .early-access-headline {
+    font-size: 2.5rem;
+  }
+  
+  .early-access-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+}
+
 /* Contact Page Styles */
 .section#contact {
   background: #4a7c7c;
