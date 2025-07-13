@@ -1269,7 +1269,7 @@ footer {
 @media (max-width: 768px) {
   /* Global scale down */
   body {
-    font-size: 0.5em;
+    font-size: 0.75em;
   }
   
   /* Header & Navigation */
@@ -1306,38 +1306,38 @@ footer {
   
   /* Hero Section */
   .hero h1.hero-headline {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
     line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     line-height: 1.4;
   }
   
   .cta {
-    font-size: 0.8rem;
-    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
     min-height: 44px;
   }
   
   /* Section Headers */
   .products-header {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
   }
   
   .marketplace-tagline {
-    font-size: 1.2rem;
-    margin: 1rem 0;
+    font-size: 2.2rem;
+    margin: 1.5rem 0;
   }
   
   .section h2 {
-    font-size: 1.2rem;
+    font-size: 2.2rem;
   }
   
   .section {
-    padding: 1.5rem 1rem;
+    padding: 3rem 1.5rem;
   }
   
   /* Product Carousel */
@@ -1347,14 +1347,14 @@ footer {
   
   .product-slide {
     flex: 0 0 calc(50% - 1px);
-    padding: 0.3rem 0.2rem;
-    height: 160px;
+    padding: 0.5rem 0.4rem;
+    height: 280px;
   }
   
   .product-img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.3rem;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0.5rem;
   }
   
   .product-desc h3 {
@@ -1395,16 +1395,16 @@ footer {
   }
   
   .member-photo {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
   }
   
   .member-name {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
   
   .member-title {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
   
   .member-bio {
