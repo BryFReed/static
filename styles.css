@@ -1653,12 +1653,13 @@ footer {
   }
   
   .product-slide {
-    flex: 0 0 100%;
+    flex: 0 0 80%;
+    max-width: 80%;
+    margin: 0 10%;
     padding: 0.6rem 0.5rem;
     min-height: 220px;
     height: auto;
     border-right: 1.2px solid #ffffff !important;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1676,6 +1677,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     padding: 0 0.2rem;
+    width: 90%;
+    margin: 0 auto;
   }
   
   .product-desc h3 {
@@ -1685,15 +1688,22 @@ footer {
   }
   
   .product-desc p {
-    font-size: 0.7rem;
-    line-height: 1.2;
+    font-size: 0.9rem;
+    line-height: 1.4;
     margin: 0;
+    white-space: normal;
+    word-break: break-word;
   }
   
   /* Mobile-specific text wrapping for header */
-  .products-header .highlight::after {
-    content: '\A';
-    white-space: pre;
+  .products-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .products-header .highlight {
+    display: block;
   }
   
   .arrow-left, .arrow-right {
