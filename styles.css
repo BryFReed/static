@@ -2346,26 +2346,26 @@ section#team.section {
 
 /* === MOBILE TWO-WORD HEADLINE FIX === */
 @media (max-width: 768px) {
-  /* Hide the third word ("ACCESSIBLE") */
-  .how-headline span:last-child {
+  /* 1) Hide the 3rd span in each headline */
+  .how-headline span:last-child,
+  .backend-headline span:last-child {
     display: none !important;
   }
 
-  /* Force the container to flex two items, center them, equal-space them */
-  .how-headline {
+  /* 2) Force both containers to be flex rows of two items */
+  .how-headline,
+  .backend-headline {
     display: flex !important;
     justify-content: center !important;
-    gap: 0.5em;               /* tweak this to taste */
-    font-size: 2.4rem !important;  /* match your other mobile two-word headings */
-    margin-bottom: 1rem !important;/* pull it up closer to the diagram */
-    text-transform: uppercase;
+    gap: 0.5em;                 /* tweak spacing between the two words */
+    font-size: 2.4rem !important;   /* pick the exact mobile size you want */
+    margin-bottom: 1rem !important; /* pull it closer to what follows */
   }
 
-  /* Make sure the two spans inherit that size and color */
-  .how-headline span {
-    display: inline-block !important;
+  /* 3) Make sure each remaining <span> inherits that size and line-height */
+  .how-headline span,
+  .backend-headline span {
     font-size: inherit !important;
-    color: #ffffff !important;
     line-height: 1 !important;
   }
 }
