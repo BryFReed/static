@@ -2346,12 +2346,6 @@ section#team.section {
 
 /* === MOBILE TWO-WORD HEADLINE FIX === */
 @media (max-width: 768px) {
-  /* 1) Hide the 3rd span in each headline */
-  .how-headline span:last-child,
-  .backend-headline span:last-child {
-    display: none !important;
-  }
-
   /* 2) Force both containers to be flex rows of two items */
   .how-headline,
   .backend-headline {
