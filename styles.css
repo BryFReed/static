@@ -1681,18 +1681,17 @@ footer {
   /* === MOBILE ONLY OVERHAUL === */
   /* 1) One-slide jumps — JS already uses fullStep = 1.0, so no change needed there */
 
-  /* 2) Make images and text same size like desktop */
-  .product-img {
-    width: 120px;       /* fixed width like desktop */
-    height: auto;       /* maintain aspect ratio */
-    object-fit: contain;
+  /* 2) Make images fill most of the slide width */
+  .product-slide .product-img {
+    width: 80%;
+    height: auto;
     margin: 0 auto 0.5rem;
     display: block;
   }
 
-  /* 3) Reduce carousel height to eliminate white space */
+  /* 3) No extra space under slides */
   .carousel-wrapper {
-    margin-bottom: 0;   /* kill the bottom margin */
+    margin-bottom: 0 !important;
     min-height: 280px;  /* reduced from 420px */
   }
   
@@ -1706,14 +1705,14 @@ footer {
   
   .product-slide {
     margin: 0;          /* no side-gaps */
-    padding: 0.2rem;    /* just a little breathing room inside */
+    padding: 0.2rem 0.5rem; /* tighter internal padding */
     height: 240px;      /* reduced from 380px */
     min-height: 240px;  /* ensure consistent height */
   }
 
-  /* 4) Flush carousel right down to the tagline */
+  /* 4) Tagline sits flush */
   .products-showcase-section .marketplace-tagline {
-    margin-top: 0;      /* tagline sits immediately under slides */
+    margin-top: 0 !important;
   }
   
   /* Override marketplace tagline spacing to remove white space */
