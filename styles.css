@@ -2195,7 +2195,7 @@ footer {
     max-width: 100% !important;
     padding: 0.5rem !important;
     box-sizing: border-box;
-    background: #f0f9f8 !important; /* match new background color */
+    background: #f0f8f8 !important; /* match section background color */
   }
 
   /* make the image fill most of the slide */
