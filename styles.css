@@ -2286,15 +2286,13 @@ footer {
   /* Mobile-specific headline override */
   .how-headline {
     font-size: 2.4rem !important;
-  }
-  
-  .how-headline span {
-    display: none !important;
+    color: transparent !important;
   }
   
   .how-headline::before {
-    content: 'SEAMLESS & INTUITIVE';
+    content: 'How it Works';
     display: block;
+    color: #ffffff !important;
   }
   
   .marketplace-tagline {
