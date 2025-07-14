@@ -268,9 +268,9 @@
     </div>
     
     <!-- Marketplace tagline -->
-            <h2 class="marketplace-tagline">
-          A <span class="highlight">FREE&OPEN</span><br class="mobile-break"><span class="marketplace-text">Marketplace</span>
-        </h2>
+    <h2 class="marketplace-tagline">
+      A <span class="highlight">FREE&OPEN</span> Marketplace
+    </h2>
     <p class="section-tagline"><em>Design. Execute. Win. Repeat.</em></p>
     
     <!-- Features section -->
@@ -552,25 +552,120 @@ document.addEventListener('DOMContentLoaded', function() {
     isAutoScrolling = true;
   }
 
-  // Simple arrow navigation - exactly one slide at a time
-  // Remove all the "mousedown"/"mouseleave"/"mouseup" handlers on prevBtn/nextBtn
-  prevBtn.replaceWith(prevBtn.cloneNode(true));
-  nextBtn.replaceWith(nextBtn.cloneNode(true));
-  const left = document.querySelector('.arrow-left');
-  const right = document.querySelector('.arrow-right');
+  // Event listeners for manual navigation
+  prevBtn.addEventListener('mousedown', () => {
+    stopAutoScroll();
+    isArrowHeld = true;
+    
+    const moveLeft = () => {
+      if (slideIndex > 0) {
+        slideIndex -= 0.005484375 * 8; // Reduced by another 25% to match new speed
+        updateCarousel();
+      }
+    };
+    
+    moveLeft();
+    arrowHoldInterval = setInterval(moveLeft, 32);
+  });
+  
+  nextBtn.addEventListener('mousedown', () => {
+    stopAutoScroll();
+    isArrowHeld = true;
+    
+    const moveRight = () => {
+      if (slideIndex < maxIndex) {
+        slideIndex += 0.005484375 * 8; // Reduced by another 25% to match new speed
+        updateCarousel();
+      }
+    };
+    
+    moveRight();
+    arrowHoldInterval = setInterval(moveRight, 32);
+  });
+  
+  // MOBILE‑ONLY: replace arrow behavior with half‑slide jumps
+  if (window.innerWidth <= 768) {
+    // disable any desktop arrow listeners if you added them already
+    prevBtn.replaceWith(prevBtn.cloneNode(true));
+    nextBtn.replaceWith(nextBtn.cloneNode(true));
+    const mPrev = document.querySelector('.arrow-left');
+    const mNext = document.querySelector('.arrow-right');
 
-  left.addEventListener('click', () => {
-    slideIndex = Math.max(0, slideIndex - 1);
-    updateCarousel();
+    // calculate visibleSlides, maxIndex exactly as before
+    const visibleSlides = 1;
+    const maxIndex = slides.length - visibleSlides;
+    let slideIndex = 0;
+    const fullStep = 1.0; // full slide instead of half
+    const overshootFrac = 0.15;
+    const bounceDur = 400; // match your CSS
+
+    function updateCarousel() {
+      const pct = -slideIndex * 100; // since 1 slide = 100% in mobile
+      track.style.transform = `translateX(${pct}%)`;
+    }
+
+    function mobileArrow(dir) {
+      const target = slideIndex + dir * fullStep;
+      if (target < 0 || target > maxIndex) {
+        // bounce logic
+        slideIndex = target < 0
+          ? -overshootFrac
+          : maxIndex + overshootFrac;
+        track.classList.add('bouncing');
+        updateCarousel();
+        setTimeout(() => {
+          slideIndex = Math.max(0, Math.min(maxIndex, target));
+          track.classList.remove('bouncing');
+          updateCarousel();
+        }, bounceDur);
+      } else {
+        slideIndex = target;
+        updateCarousel();
+      }
+    }
+
+    mPrev.addEventListener('click', () => mobileArrow(-1));
+    mNext.addEventListener('click', () => mobileArrow( 1));
+
+    // stop any desktop auto‑scroll if present
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+    }
+  }
+
+  // Stop fast scrolling when arrow is released
+  prevBtn.addEventListener('mouseup', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000); // Resume auto-scroll after 2 seconds
+  });
+  
+  nextBtn.addEventListener('mouseup', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000); // Resume auto-scroll after 2 seconds
   });
 
-  right.addEventListener('click', () => {
-    slideIndex = Math.min(maxIndex, slideIndex + 1);
-    updateCarousel();
+  // Also handle mouseleave to stop fast scrolling
+  prevBtn.addEventListener('mouseleave', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000);
   });
-
-  // stop the auto-scroll so it doesn't fight your clicks
-  if (autoScrollInterval) clearInterval(autoScrollInterval);
+  
+  nextBtn.addEventListener('mouseleave', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000);
+  });
 
   // Handle window resize
   window.addEventListener('resize', () => {
