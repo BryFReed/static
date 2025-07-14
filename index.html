@@ -583,20 +583,21 @@ document.addEventListener('DOMContentLoaded', function() {
     arrowHoldInterval = setInterval(moveRight, 32);
   });
   
-  // Mobile-specific arrow handling (one slide at a time)
+  // Mobile-specific arrow handling (half-slide navigation)
   if (window.innerWidth <= 768) {
-    // remove the old mousedown/up listeners if you attached them above
+    const step = 0.5;  // half a slide
+    // clear any prior listeners (if you used replaceNode above)
     prevBtn.replaceWith(prevBtn.cloneNode(true));
     nextBtn.replaceWith(nextBtn.cloneNode(true));
-    const [newPrev, newNext] = [document.querySelector('.arrow-left'), document.querySelector('.arrow-right')];
+    const newPrev = document.querySelector('.arrow-left');
+    const newNext = document.querySelector('.arrow-right');
 
     newPrev.addEventListener('click', () => {
-      slideIndex = Math.max(0, Math.floor(slideIndex) - 1);
+      slideIndex = Math.max(0, slideIndex - step);
       updateCarousel();
     });
-
     newNext.addEventListener('click', () => {
-      slideIndex = Math.min(maxIndex, Math.ceil(slideIndex) + 1);
+      slideIndex = Math.min(maxIndex, slideIndex + step);
       updateCarousel();
     });
   }

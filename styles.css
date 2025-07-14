@@ -1678,57 +1678,51 @@ footer {
     border-right: 1.2px solid #f0f8f8 !important;
   }
   
-  /* ─── Mobile carousel tweaks ─── */
-  /* 1) Make slide gutters ocean‑green instead of white */
+  /* ─── MOBILE: bigger images & no whitespace ─── */
+  /* 1) Double the image size relative to its container */
+  .product-img {
+    width: 150%;           /* 2× the original 75% */
+    margin: 0 auto 0.5rem;
+  }
+
+  /* 2) Shrink slides so they fill exactly the wrapper */
   .product-slide {
-    border-right: 1px solid #20B2AA;    /* ocean green */
+    flex: 0 0 100%;        /* take 100% of carousel width */
+    max-width: 100%;
+    margin: 0;
+    border-right: 1px solid #20B2AA;
   }
   .product-slide:last-child {
     border-right: none;
   }
 
-  /* 2) Shrink the text box by 15% (→ 75% width), center it, and force wrapping */
-  .product-desc {
-    width: 75%;
-    margin: 0 auto;
+  /* 3) Kill all padding/gaps so no white bars show */
+  .carousel-wrapper,
+  .carousel-container {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
   }
-  .product-desc p {
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.4;
-    font-size: 0.9rem;
-  }
-
-  /* 3) Make images as big as the text container */
-  .product-img {
-    width: 75%;
-    margin: 0 auto 0.5rem;
-    display: block;
-    object-fit: contain;
-  }
-
-  /* 4) Kill any extra whitespace around the slides */
   .carousel-track {
     gap: 0;
     padding: 0;
   }
-  .carousel-container,
+
+  /* 4) Force track height to match your slides' tallest element */
   .carousel-wrapper {
-    padding: 0;
-    margin: 0;
+    min-height: 280px;   /* tweak up/down until your images/text fit perfectly */
   }
 
-  /* 5) Pull the arrows inside and keep them vertically centered */
+  /* 5) Center arrows and bring them inboard */
   .arrow-left, .arrow-right {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background: transparent;
+    border: none;
   }
-  .arrow-left {
-    left: 10px;
-  }
-  .arrow-right {
-    right: 10px;
-  }
+  .arrow-left { left: 8px; }
+  .arrow-right { right: 8px; }
   
   .product-img {
     width: 80px;
