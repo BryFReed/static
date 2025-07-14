@@ -1518,6 +1518,15 @@ footer {
     color: #ffffff !important;
   }
   
+  /* Force white color for hero buttons on mobile */
+  .hero .hero-buttons a.cta {
+    color: #ffffff !important;
+  }
+  
+  .hero-buttons a.cta {
+    color: #ffffff !important;
+  }
+  
   .hero-buttons .cta:hover {
     opacity: 0.7 !important;
   }
