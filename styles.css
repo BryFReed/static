@@ -103,7 +103,7 @@ header {
 }
 
 .mobile-nav a {
-  padding: 0.5rem 2rem;
+  padding: 0.3rem 2rem;
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
@@ -124,11 +124,16 @@ header {
   border-bottom: none;
 }
 
+/* Add thicker divider between Early Access and Set Sail */
+.mobile-nav a[href="early-access.html"] {
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
 .mobile-nav a.cta-nav {
   background: none !important;
   color: #ffffff !important;
   font-weight: 500 !important;
-  padding: 0.5rem 2rem !important;
+  padding: 0.3rem 2rem !important;
   border-radius: 0 !important;
   font-size: 1.1rem !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
@@ -1459,6 +1464,23 @@ footer {
     border: none !important;
   }
   
+  /* Add circles around hero CTA buttons on mobile */
+  .hero-buttons .cta {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50px !important;
+    padding: 0.6rem 1.2rem !important;
+    margin: 0 0.5rem !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .hero-buttons .cta:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px) !important;
+  }
+  
   /* Hero Section */
   .hero {
     min-height: 90vh;
@@ -1473,7 +1495,7 @@ footer {
   .hero-subtitle {
     font-size: 0.9rem;
     line-height: 1.4;
-    max-width: 90%;
+    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1516,7 +1538,7 @@ footer {
   }
   
   .product-slide {
-    flex: 0 0 calc(50% - 1px);
+    flex: 0 0 100%;
     padding: 0.5rem 0.4rem;
     min-height: 260px;
     height: auto;
@@ -1644,10 +1666,28 @@ footer {
     height: 60px;
   }
   
+  /* Change arrows to point down on mobile */
+  .diagram-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+  
+  /* Stack diagram steps vertically on mobile */
+  .how-diagram {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .diagram-step {
+    width: 100%;
+    max-width: 300px;
+  }
+  
   /* Footer */
   .footer-content {
     font-size: 0.8rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.5rem;
   }
   
   /* Product Cards */

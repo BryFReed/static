@@ -363,12 +363,20 @@ document.addEventListener('DOMContentLoaded', function() {
   let isAutoScrolling = true;
 
   function updateCarousel() {
-    // Show 3 products at a time, scroll by 1
-    const translateX = -(currentIndex * (100 / 3));
+    // Check if mobile (width <= 768px)
+    const isMobile = window.innerWidth <= 768;
+    const slidesPerView = isMobile ? 1 : 3;
+    
+    // Show products based on screen size, scroll by 1
+    const translateX = -(currentIndex * (100 / slidesPerView));
     track.style.transform = `translateX(${translateX}%)`;
   }
 
   function nextSlide() {
+    // Check if mobile (width <= 768px)
+    const isMobile = window.innerWidth <= 768;
+    const slidesPerView = isMobile ? 1 : 3;
+    
     // Move by 1 product at a time, seamless loop
     currentIndex++;
     if (currentIndex >= totalSlides - slidesPerView) {
@@ -386,6 +394,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function prevSlide() {
+    // Check if mobile (width <= 768px)
+    const isMobile = window.innerWidth <= 768;
+    const slidesPerView = isMobile ? 1 : 3;
+    
     // Move by 1 product at a time, seamless loop
     currentIndex--;
     if (currentIndex < 0) {
@@ -436,6 +448,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const carouselContainer = document.querySelector('.carousel-container');
   carouselContainer.addEventListener('mouseenter', stopAutoScroll);
   carouselContainer.addEventListener('mouseleave', resumeAutoScroll);
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    updateCarousel();
+  });
 
   // Initialize
   updateCarousel();
