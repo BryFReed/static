@@ -99,10 +99,10 @@
 </head>
 <body>
   <header>
-    <div class="logo-img-wrap mobile-dropdown-trigger">
+    <div class="logo-img-wrap">
       <img src="freeport.png" alt="Freeport Logo" class="logo-img" />
-      <div class="logo-text">Freeport</div>
-      <span class="dropdown-arrow">▼</span>
+      <div class="logo-text mobile-dropdown-trigger">Freeport</div>
+      <div class="dropdown-arrow">▼</div>
     </div>
     <nav class="desktop-nav">
       <a href="index.html" class="home-nav">Home</a>
@@ -114,13 +114,13 @@
       <a href="login.html" class="cta-nav">Set Sail</a>
     </nav>
     <nav class="mobile-nav">
-      <a href="index.html" class="home-nav">Home</a>
+      <a href="index.html">Home</a>
       <a href="#offer">Strategies</a>
       <a href="#how">Platform</a>
       <a href="team.html">Team</a>
       <a href="contact.html">Connect</a>
-      <a href="early-access.html" class="cta-nav">Early Access</a>
-      <a href="login.html" class="cta-nav">Set Sail</a>
+      <a href="early-access.html">Early Access</a>
+      <a href="login.html">Set Sail</a>
     </nav>
   </header>
   <section class="hero">
@@ -258,21 +258,7 @@
           </div>
         </div>
 
-        <!-- Duplicate first 2 slides at the end for seamless loop -->
-        <div class="product-slide">
-          <img src="binary.png" alt="Digital (Binary)" class="product-img" />
-          <div class="product-desc">
-            <h3>Digital (Binary)</h3>
-            <p>Bet on whether an asset reaches your target price. Fixed payout if it does, limited loss if not. Perfect for event-driven trades.</p>
-          </div>
-        </div>
-        <div class="product-slide">
-          <img src="rainbow.png" alt="Rainbow (Multi-Asset)" class="product-img" />
-          <div class="product-desc">
-            <h3>Rainbow (Multi-Asset)</h3>
-            <p>Bundle multiple assets and profit from whichever performs best. No need to pick winners. Built-in diversification in one trade.</p>
-          </div>
-        </div>
+
       </div>
       <button class="arrow-right">〉</button>
     </div>
@@ -355,10 +341,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const slides = Array.from(document.querySelectorAll('.product-slide'));
   const prevBtn = document.querySelector('.arrow-left');
   const nextBtn = document.querySelector('.arrow-right');
-  let currentIndex = 0; // Start at the first slide (no duplicate slides at beginning now)
-  const slidesPerView = 3;
+  let currentIndex = 0;
   const totalSlides = slides.length;
-  const originalSlides = 16; // Number of original slides (after removing 4)
   let autoScrollInterval;
   let isAutoScrolling = true;
 
@@ -377,18 +361,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     const slidesPerView = isMobile ? 1 : 3;
     
-    // Move by 1 product at a time, seamless loop
+    // Move by 1 product at a time, loop back to start
     currentIndex++;
-    if (currentIndex >= totalSlides - slidesPerView) {
-      // When we reach the end, quickly jump to the beginning without animation
-      setTimeout(() => {
-        currentIndex = 0; // Jump to first slide
-        track.style.transition = 'none';
-        updateCarousel();
-        setTimeout(() => {
-          track.style.transition = 'transform 0.4s ease';
-        }, 10);
-      }, 400);
+    if (currentIndex >= totalSlides) {
+      currentIndex = 0; // Jump to first slide
     }
     updateCarousel();
   }
@@ -398,18 +374,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     const slidesPerView = isMobile ? 1 : 3;
     
-    // Move by 1 product at a time, seamless loop
+    // Move by 1 product at a time, loop back to end
     currentIndex--;
     if (currentIndex < 0) {
-      // When we reach the beginning, quickly jump to the end without animation
-      setTimeout(() => {
-        currentIndex = totalSlides - slidesPerView; // Jump to last real slide
-        track.style.transition = 'none';
-        updateCarousel();
-        setTimeout(() => {
-          track.style.transition = 'transform 0.4s ease';
-        }, 10);
-      }, 400);
+      currentIndex = totalSlides - 1; // Jump to last slide
     }
     updateCarousel();
   }

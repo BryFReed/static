@@ -1500,7 +1500,7 @@ footer {
     margin-right: auto;
   }
   
-  .cta {
+  .cta:not(.hero-buttons .cta) {
     font-size: 1rem;
     padding: 0.2rem 0.5rem;
     min-height: 44px;
@@ -1668,7 +1668,7 @@ footer {
   
   /* Change arrows to point down on mobile */
   .diagram-arrow {
-    transform: rotate(90deg);
+    transform: rotate(270deg);
     margin: 1rem 0;
   }
   
@@ -1928,7 +1928,7 @@ footer {
     justify-content: center;
   }
   
-  .cta {
+  .cta:not(.hero-buttons .cta) {
     font-size: 0.9rem;
     padding: 0.15rem 0.4rem;
     min-height: 36px;
