@@ -2264,6 +2264,41 @@ footer {
   }
 }
 
+/* === MOBILE PRODUCT SECTION SPACING REDUCTION === */
+@media (max-width: 768px) {
+  /* reduce white space in product section */
+  .products-showcase-section {
+    padding: 1.5rem 0 2rem 0 !important;
+    gap: 1.5rem !important;
+  }
+  
+  .products-header {
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .marketplace-tagline {
+    margin: 0.5rem 0 !important;
+    font-size: 2rem !important;
+  }
+  
+  .section-tagline {
+    margin: 0.25rem 0 0.5rem 0 !important;
+  }
+  
+  .carousel-wrapper {
+    margin-bottom: 0 !important;
+  }
+  
+  .features-container {
+    margin-top: 0.5rem !important;
+    gap: 1rem !important;
+  }
+  
+  .feature-item {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
 /* === SECTION-SPECIFIC BACKGROUND OVERRIDES === */
 section#how.section {
   background-color: #4a7c7c !important;
