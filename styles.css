@@ -2276,6 +2276,13 @@ footer {
     margin-bottom: 0.5rem !important;
   }
   
+  /* Mobile-specific line break for products header */
+  .products-header .highlight::after {
+    content: '\A';
+    white-space: pre;
+    line-height: 0.8;
+  }
+  
   .marketplace-tagline {
     margin-bottom: 0.5rem !important;
     font-size: 2rem !important;
@@ -2301,6 +2308,13 @@ footer {
   /* reduce contact paragraph spacing to 1 line */
   .contact-message p {
     margin-bottom: 1rem !important;
+  }
+}
+
+/* === DESKTOP MARKETPLACE TAGLINE FIX === */
+@media (min-width: 769px) {
+  .marketplace-tagline br {
+    display: none;
   }
 }
 
