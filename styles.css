@@ -2254,3 +2254,20 @@ footer {
     right: 0 !important;
   }
 }
+
+/* === FINAL MOBILE SECTION OVERRIDE === */
+@media (max-width: 768px) {
+  /* explicitly restore "How It Works" to teal */
+  section#how {
+    background-color: #4a7c7c !important;
+  }
+}
+
+/* === FINAL MOBILE BORDER FIX === */
+@media (max-width: 768px) {
+  /* hide or blend the separators */
+  .products-showcase-section .product-slide {
+    /* remove them altogether */
+    border-right: none !important;
+  }
+}
