@@ -400,7 +400,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function moveCarousel(speed = 1) {
-    const moveAmount = 0.00975 * Math.abs(speed);     // smooth per-tick increment
+    const isMobile = window.innerWidth <= 768;
+    const mobileSpeedMultiplier = 0.4; // 40% of desktop speed
+    const baseMoveAmount = 0.00975;
+    const moveAmount = baseMoveAmount * Math.abs(speed) * (isMobile ? mobileSpeedMultiplier : 1);
     
     // advance smoothly
     slideIndex += scrollDirection * moveAmount;
