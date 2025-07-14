@@ -126,7 +126,7 @@ header {
 
 /* Add thicker divider between Early Access and Set Sail */
 .mobile-nav a[href="early-access.html"] {
-  border-bottom: 2px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .mobile-nav a.cta-nav {
@@ -569,7 +569,7 @@ nav a.cta-nav:hover {
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 1;
-  opacity: 0.80;
+  opacity: 0.70;
   pointer-events: none;
 }
 
@@ -1466,12 +1466,12 @@ footer {
   
   /* Add circles around hero CTA buttons on mobile */
   .hero-buttons .cta {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    background: #20B2AA !important;
+    border: 2px solid #20B2AA !important;
     border-radius: 50px !important;
     padding: 0.6rem 1.2rem !important;
     margin: 0 0.5rem !important;
-    backdrop-filter: blur(10px) !important;
+    color: white !important;
     transition: all 0.3s ease !important;
   }
   
@@ -1542,6 +1542,7 @@ footer {
     padding: 0.5rem 0.4rem;
     min-height: 260px;
     height: auto;
+    border-right: none !important;
   }
   
   .product-img {
@@ -1668,7 +1669,7 @@ footer {
   
   /* Change arrows to point down on mobile */
   .diagram-arrow {
-    transform: rotate(270deg);
+    transform: rotate(90deg);
     margin: 1rem 0;
   }
   

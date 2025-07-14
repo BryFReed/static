@@ -91,6 +91,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const dropdownTrigger = document.querySelector('.mobile-dropdown-trigger');
       const mobileNav = document.querySelector('.mobile-nav');
+      const dropdownArrow = document.querySelector('.dropdown-arrow');
       
       if (dropdownTrigger && mobileNav) {
         dropdownTrigger.addEventListener('click', function(e) {
@@ -98,6 +99,9 @@
           e.stopPropagation();
           dropdownTrigger.classList.toggle('active');
           mobileNav.classList.toggle('active');
+          if (dropdownArrow) {
+            dropdownArrow.style.transform = mobileNav.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          }
         });
         
         // Close dropdown when clicking outside
@@ -105,6 +109,9 @@
           if (!dropdownTrigger.contains(e.target) && !mobileNav.contains(e.target)) {
             dropdownTrigger.classList.remove('active');
             mobileNav.classList.remove('active');
+            if (dropdownArrow) {
+              dropdownArrow.style.transform = 'rotate(0deg)';
+            }
           }
         });
       }
