@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (isMobile) {
       // On mobile: each slide takes full width, so translate by 100% per slide
-      const translateX = -(currentIndex * 105);
+      const translateX = -(currentIndex * 110);
       track.style.transform = `translateX(${translateX}%)`;
     } else {
       // On desktop: show 3 slides, translate by 33.333% per slide
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isAutoScrolling) {
         nextSlide();
       }
-    }, 3000); // Scroll every 3 seconds
+    }, 5000); // Scroll every 3 seconds
   }
 
   function stopAutoScroll() {
