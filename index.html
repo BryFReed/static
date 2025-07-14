@@ -582,6 +582,29 @@ document.addEventListener('DOMContentLoaded', function() {
     moveRight();
     arrowHoldInterval = setInterval(moveRight, 32);
   });
+  
+  // Add click handlers for mobile slide-by-slide navigation
+  prevBtn.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      stopAutoScroll();
+      if (slideIndex > 0) {
+        slideIndex--;
+        updateCarousel();
+      }
+      setTimeout(resumeAutoScroll, 2000);
+    }
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      stopAutoScroll();
+      if (slideIndex < maxIndex) {
+        slideIndex++;
+        updateCarousel();
+      }
+      setTimeout(resumeAutoScroll, 2000);
+    }
+  });
 
   // Stop fast scrolling when arrow is released
   prevBtn.addEventListener('mouseup', () => {
