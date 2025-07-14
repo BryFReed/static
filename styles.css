@@ -1492,7 +1492,7 @@ footer {
     justify-content: center !important;
     align-items: center !important;
     gap: 1rem !important;
-    margin-top: 0.5rem !important;
+    margin-top: 1.5rem !important;
   }
   
   .hero-buttons .cta {
@@ -1501,7 +1501,7 @@ footer {
     border-radius: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-    color: #20B2AA !important;
+    color: #ffffff !important;
     font-weight: 600 !important;
     font-size: 1rem !important;
     text-decoration: underline !important;
