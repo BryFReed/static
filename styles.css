@@ -1665,6 +1665,19 @@ footer {
     justify-content: space-between;
   }
   
+  .product-slide:last-child {
+    border-right: 1.2px solid #f0f8f8 !important;
+  }
+  
+  /* Force mobile carousel styles with higher specificity */
+  .carousel-track .product-slide {
+    border-right: 1.2px solid #f0f8f8 !important;
+  }
+  
+  .carousel-track .product-slide:last-child {
+    border-right: 1.2px solid #f0f8f8 !important;
+  }
+  
   .product-img {
     width: 80px;
     height: 80px;
