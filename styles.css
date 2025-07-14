@@ -1678,46 +1678,35 @@ footer {
     border-right: 1.2px solid #f0f8f8 !important;
   }
   
-  /* === MOBILE ONLY OVERHAUL === */
-  /* 1) One-slide jumps — JS already uses fullStep = 1.0, so no change needed there */
-
-  /* 2) Make images fill most of the slide width */
-  .product-slide .product-img {
-    width: 80%;
-    height: auto;
-    margin: 0 auto 0.5rem;
-    display: block;
-  }
-
-  /* 3) No extra space under slides */
+  /* === mobile carousel tweaks === */
   .carousel-wrapper {
-    margin-bottom: 0 !important;
-    min-height: 280px;  /* reduced from 420px */
-  }
-  
-  .carousel-container {
-    min-height: 260px;  /* reduced from 400px */
-  }
-  
-  .carousel-track {
-    min-height: 240px;  /* reduced from 280px */
-  }
-  
-  .product-slide {
-    margin: 0;          /* no side-gaps */
-    padding: 0.2rem 0.5rem; /* tighter internal padding */
-    height: 240px;      /* reduced from 380px */
-    min-height: 240px;  /* ensure consistent height */
+    margin-bottom: 0;            /* kill extra space under slides */
   }
 
-  /* 4) Tagline sits flush */
   .products-showcase-section .marketplace-tagline {
-    margin-top: 0 !important;
+    margin-top: 0.5rem !important; /* sit tagline flush under carousel */
   }
-  
-  /* Override marketplace tagline spacing to remove white space */
-  .marketplace-tagline {
-    margin: 0.5rem 0 !important;  /* minimal spacing */
+
+  .carousel-track .product-slide {
+    flex: 0 0 100%;              /* one slide per frame */
+    max-width: 100%;
+    padding: 0.5rem 0.5rem;      /* slight padding inside each slide */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;                /* let content determine height */
+  }
+
+  .carousel-track .product-slide .product-img {
+    width: 90%;                  /* fill 90% of slide width */
+    height: auto;                /* keep aspect ratio */
+    max-height: 50vh;            /* cap height so it doesn't overflow */
+    object-fit: contain;
+    margin-bottom: 0.75rem;      /* space to text */
+  }
+
+  .carousel-track .product-slide .product-desc {
+    margin-top: 0;               /* sit immediately under image */
   }
 
   /* a) Carousel container now absolutely flush to its wrapper */
