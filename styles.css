@@ -2285,7 +2285,7 @@ footer {
   
   /* Mobile-specific headline override */
   .how-headline {
-    font-size: 2.4rem !important;
+    font-size: 3rem !important;
     color: transparent !important;
   }
   
@@ -2293,6 +2293,11 @@ footer {
     content: 'How it Works';
     display: block;
     color: #ffffff !important;
+  }
+  
+  /* Reduce spacing after headline on mobile */
+  .how-headline {
+    margin-bottom: 1rem !important;
   }
   
   .marketplace-tagline {
