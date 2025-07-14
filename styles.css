@@ -1652,31 +1652,7 @@ footer {
     width: 100%;
   }
   
-  .product-slide {
-    flex: 0 0 80%;
-    max-width: 80%;
-    margin: 0 10%;
-    padding: 0.4rem 0.3rem;
-    min-height: 200px;
-    height: auto;
-    border-right: 1.2px solid #f0f8f8 !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .product-slide:last-child {
-    border-right: 1.2px solid #f0f8f8 !important;
-  }
-  
-  /* Force mobile carousel styles with higher specificity */
-  .carousel-track .product-slide {
-    border-right: 1.2px solid #f0f8f8 !important;
-  }
-  
-  .carousel-track .product-slide:last-child {
-    border-right: 1.2px solid #f0f8f8 !important;
-  }
+  /* REMOVED: Conflicting product-slide rules */
   
   /* === mobile carousel tweaks === */
   .carousel-wrapper {
@@ -1721,41 +1697,11 @@ footer {
     padding: 0;
   }
 
-  /* b) Each slide fills 100% of the frame—no gutters */
-  .product-slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0.2rem 0.1rem;
-    border-right: 1px solid #20B2AA;
-  }
-  .product-slide:last-child {
-    border-right: none;
-  }
+  /* REMOVED: Another conflicting product-slide rule */
 
   /* c) Make images huge—2x width and height - REMOVED */
 
-  /* d) Text box sized to match image like desktop */
-  .product-desc {
-    width: 100%;
-    margin: 0 auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .product-desc h3 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.1;
-  }
-  .product-desc p {
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.3;
-    font-size: 0.8rem;
-    margin: 0;
-  }
+  /* REMOVED: Conflicting product-desc rules */
 
   /* e) Center the arrows inside the frame */
   .arrow-left, .arrow-right {
@@ -1775,12 +1721,7 @@ footer {
     transition: none;
   }
   
-  /* 1) Full‑width carousel, no extra margins */
-  .carousel-wrapper {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0;
-  }
+  /* REMOVED: Duplicate carousel-wrapper rule */
 
   /* 2) Remove the side gutters altogether */
   .carousel-container::before,
@@ -1794,29 +1735,7 @@ footer {
     margin: 0;
   }
   
-  .product-desc {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 0.1rem;
-    width: 85%;
-    margin: 0 auto;
-  }
-  
-  .product-desc h3 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.1;
-  }
-  
-  .product-desc p {
-    font-size: 0.8rem;
-    line-height: 1.3;
-    margin: 0;
-    white-space: normal;
-    word-break: break-word;
-  }
+  /* REMOVED: Duplicate product-desc rules */
   
   /* Mobile-specific text wrapping for header */
   .products-header {
@@ -2276,6 +2195,7 @@ footer {
     max-width: 100% !important;
     padding: 0.5rem !important;
     box-sizing: border-box;
+    background: #181A20 !important; /* match mobile background color */
   }
 
   /* make the image fill most of the slide */
