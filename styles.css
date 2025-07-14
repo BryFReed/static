@@ -35,7 +35,7 @@ header {
   display: none;
   font-size: 1.2rem;
   color: #fff;
-  margin-left: 0.1rem;
+  margin-left: 0;
   transition: transform 0.3s ease;
   pointer-events: none;
   user-select: none;
@@ -81,6 +81,7 @@ header {
 }
 
 .mobile-nav.active {
+  display: flex;
   transform: translateY(0);
   opacity: 1;
 }
@@ -1385,7 +1386,7 @@ footer {
   }
   
   .mobile-nav {
-    display: flex;
+    display: none;
   }
   
   nav a {
