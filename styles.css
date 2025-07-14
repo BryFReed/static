@@ -1680,14 +1680,7 @@ footer {
   
   /* === MOBILE CAROUSEL REMOVED - CONFLICTING RULES === */
   
-  /* now 20% smaller */
-  .carousel-track .product-slide .product-img {
-    width: 160% !important;
-    height: 160% !important;
-    margin: 0 auto 0.5rem !important;
-    display: block !important;
-    object-fit: contain !important;
-  }
+  /* now 20% smaller - REMOVED (will use bottom override instead) */
   
   /* Mobile-specific text wrapping for header */
   .products-header {
@@ -2151,12 +2144,24 @@ footer {
 
   /* make the image fill most of the slide - REMOVED (using 160% instead) */
   
-  /* Ensure consistent spacing between headers and taglines */
-  .products-header {
+  /* Ensure consistent spacing between headers and taglines - REMOVED (will use bottom override) */
+}
+
+/* === FINAL MOBILE OVERRIDE - HIGHEST SPECIFICITY === */
+@media (max-width: 768px) {
+  .carousel-container .carousel-track .product-slide .product-img {
+    width: 160% !important;   /* 20% smaller than 200% */
+    height: auto !important;
+    margin-bottom: 0.5rem !important;
+    object-fit: contain !important;
+  }
+  
+  /* Consistent spacing between headers and taglines */
+  .products-showcase-section .products-header {
     margin: 1.5rem 0 !important;
   }
   
-  .marketplace-tagline {
+  .products-showcase-section .marketplace-tagline {
     margin: 1.5rem 0 !important;
   }
 }
