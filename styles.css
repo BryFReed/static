@@ -669,11 +669,11 @@ nav a.cta-nav:hover {
 
 .section {
   padding: 4rem 4vw 3rem 4vw;
-  background: #181A20;
+  background: #f0f8f8; 
 }
 
 .section#how {
-  background: #4a7c7c;
+  background: #f0f8f8;
 }
 
 .section#vision {
@@ -2195,7 +2195,7 @@ footer {
     max-width: 100% !important;
     padding: 0.5rem !important;
     box-sizing: border-box;
-    background: #f0f8f8 !important; /* match section background color */
+    background: #f0f9f8 !important; /* match new background color */
   }
 
   /* make the image fill most of the slide */
