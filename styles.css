@@ -2277,7 +2277,7 @@ footer {
   }
   
   .marketplace-tagline {
-    margin: 0.5rem 0 !important;
+    margin-bottom: 0.5rem !important;
     font-size: 2rem !important;
   }
   
@@ -2296,6 +2296,11 @@ footer {
   
   .feature-item {
     margin-bottom: 0.5rem !important;
+  }
+  
+  /* reduce contact paragraph spacing to 1 line */
+  .contact-message p {
+    margin-bottom: 1rem !important;
   }
 }
 
