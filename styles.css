@@ -1513,6 +1513,11 @@ footer {
     min-height: auto !important;
   }
   
+  /* Override any conflicting .cta rules for hero buttons */
+  .hero .hero-buttons .cta {
+    color: #ffffff !important;
+  }
+  
   .hero-buttons .cta:hover {
     opacity: 0.7 !important;
   }
@@ -1579,6 +1584,13 @@ footer {
   /* Product Carousel */
   .carousel-container {
     margin: 0 -1rem;
+    overflow: hidden;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
   }
   
   .product-slide {
@@ -1587,6 +1599,7 @@ footer {
     min-height: 260px;
     height: auto;
     border-right: none !important;
+    width: 100%;
   }
   
   .product-img {
