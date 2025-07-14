@@ -382,8 +382,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     
     if (isMobile) {
-      // On mobile: each slide takes full width, so translate by 100% per slide
-      const translateX = -(currentIndex * 100);
+      // On mobile: each slide takes full width, so translate by 101% per slide
+      const translateX = -(currentIndex * 101);
       track.style.transform = `translateX(${translateX}%)`;
     } else {
       // On desktop: show 3 slides, translate by 33.333% per slide
