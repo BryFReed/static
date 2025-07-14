@@ -1527,6 +1527,24 @@ footer {
     color: #ffffff !important;
   }
   
+  /* Most specific override for hero buttons */
+  .hero .hero-content .hero-buttons .cta {
+    color: #ffffff !important;
+  }
+  
+  .hero .hero-content .hero-buttons a.cta {
+    color: #ffffff !important;
+  }
+  
+  /* Force white color with maximum specificity */
+  body .hero .hero-content .hero-buttons .cta {
+    color: #ffffff !important;
+  }
+  
+  body .hero .hero-content .hero-buttons a.cta {
+    color: #ffffff !important;
+  }
+  
   .hero-buttons .cta:hover {
     opacity: 0.7 !important;
   }
