@@ -2300,6 +2300,15 @@ footer {
     margin-bottom: 1rem !important;
   }
   
+  /* Make both 2-word headlines the same size on mobile */
+  .how-headline {
+    font-size: 2.4rem !important;
+  }
+  
+  .backend-headline {
+    font-size: 2.4rem !important;
+  }
+  
   .marketplace-tagline {
     margin-bottom: 0.5rem !important;
     font-size: 2rem !important;
