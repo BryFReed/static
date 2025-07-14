@@ -2196,11 +2196,12 @@ footer {
     padding: 0.5rem !important;
     box-sizing: border-box;
     background: transparent !important;
+    border-right: 1.2px solid #f0f9f8 !important;
   }
 
   /* make the image fill most of the slide */
   .carousel-track .product-slide .product-img {
-    width: 90% !important;
+    width: 72% !important;
     height: auto !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
