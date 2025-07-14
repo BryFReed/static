@@ -1657,7 +1657,7 @@ footer {
     padding: 1rem 0.8rem;
     min-height: 280px;
     height: auto;
-    border-right: none !important;
+    border-right: 1.2px solid #ffffff !important;
     width: 100%;
     display: flex;
     flex-direction: column;
