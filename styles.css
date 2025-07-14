@@ -1680,6 +1680,15 @@ footer {
   
   /* === MOBILE CAROUSEL REMOVED - CONFLICTING RULES === */
   
+  /* now 20% smaller */
+  .product-img {
+    width: 160%;
+    height: 160%;
+    margin: 0 auto 0.5rem;
+    display: block;
+    object-fit: contain;
+  }
+  
   /* Mobile-specific text wrapping for header */
   .products-header {
     display: flex;
@@ -2142,7 +2151,7 @@ footer {
 
   /* make the image fill most of the slide */
   .carousel-track .product-slide .product-img {
-    width: 72% !important;
+    width: 90% !important;
     height: auto !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
