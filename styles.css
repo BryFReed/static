@@ -1733,14 +1733,7 @@ footer {
     border-right: none;
   }
 
-  /* c) Make images huge—2x width and height */
-  .product-img {
-    width: 200%;
-    height: 200%;
-    margin: 0 auto 0.5rem;
-    display: block;
-    object-fit: contain;
-  }
+  /* c) Make images huge—2x width and height - REMOVED */
 
   /* d) Text box sized to match image like desktop */
   .product-desc {
@@ -2264,5 +2257,45 @@ footer {
   
   .marketplace-tagline {
     font-size: 2rem;
+  }
+}
+
+/* === HIGH-SPECIFICITY MOBILE CAROUSEL OVERRIDE === */
+@media (max-width: 768px) {
+  /* make carousel slide fill width & push text down */
+  .carousel-wrapper {
+    margin-bottom: 0 !important;
+  }
+  .products-showcase-section .marketplace-tagline {
+    margin-top: 0.5rem !important;
+  }
+
+  .carousel-container,
+  .carousel-track {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  .carousel-track .product-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    height: auto !important;
+  }
+
+  .carousel-track .product-slide .product-img {
+    width: 90% !important;
+    height: auto !important;
+    max-height: 50vh !important;
+    object-fit: contain !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .carousel-track .product-slide .product-desc {
+    margin-top: 0 !important;
   }
 }
