@@ -2142,7 +2142,7 @@ footer {
 
   /* make the image fill most of the slide */
   .carousel-track .product-slide .product-img {
-    width: 90% !important;
+    width: 72% !important;
     height: auto !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
