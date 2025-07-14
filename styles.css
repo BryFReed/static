@@ -1678,16 +1678,22 @@ footer {
     border-right: 1.2px solid #f0f8f8 !important;
   }
   
-  /* ─── MOBILE: bigger images & no whitespace ─── */
-  /* 1) Double the image size relative to its container */
-  .product-img {
-    width: 150%;           /* 2× the original 75% */
-    margin: 0 auto 0.5rem;
+  /* === MOBILE ONLY OVERHAUL === */
+  /* a) Carousel container now absolutely flush to its wrapper */
+  .carousel-wrapper,
+  .carousel-container {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .carousel-track {
+    gap: 0;
+    padding: 0;
   }
 
-  /* 2) Shrink slides so they fill exactly the wrapper */
+  /* b) Each slide fills 100% of the frame—no gutters */
   .product-slide {
-    flex: 0 0 100%;        /* take 100% of carousel width */
+    flex: 0 0 100%;
     max-width: 100%;
     margin: 0;
     border-right: 1px solid #20B2AA;
@@ -1696,33 +1702,43 @@ footer {
     border-right: none;
   }
 
-  /* 3) Kill all padding/gaps so no white bars show */
-  .carousel-wrapper,
-  .carousel-container {
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-  .carousel-track {
-    gap: 0;
-    padding: 0;
+  /* c) Make images huge—twice their old size */
+  .product-img {
+    width: 200%;
+    margin: 0 auto 0.5rem;
+    display: block;
+    object-fit: contain;
   }
 
-  /* 4) Force track height to match your slides' tallest element */
-  .carousel-wrapper {
-    min-height: 280px;   /* tweak up/down until your images/text fit perfectly */
+  /* d) Text box a bit smaller */
+  .product-desc {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .product-desc p {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
+    font-size: 0.9rem;
   }
 
-  /* 5) Center arrows and bring them inboard */
+  /* e) Center the arrows inside the frame */
   .arrow-left, .arrow-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
+    font-size: 2.5rem;
+    padding: 0;
   }
   .arrow-left { left: 8px; }
   .arrow-right { right: 8px; }
+
+  /* f) Remove the "bounce" shadow on mobile (it can glitch) */
+  .carousel-track.bouncing {
+    transition: none;
+  }
   
   .product-img {
     width: 80px;
