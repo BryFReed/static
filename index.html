@@ -595,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const visibleSlides = 1;
     const maxIndex = slides.length - visibleSlides;
     let slideIndex = 0;
-    const halfStep = 0.5;
+    const fullStep = 1.0; // full slide instead of half
     const overshootFrac = 0.15;
     const bounceDur = 400; // match your CSS
 
@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function mobileArrow(dir) {
-      const target = slideIndex + dir * halfStep;
+      const target = slideIndex + dir * fullStep;
       if (target < 0 || target > maxIndex) {
         // bounce logic
         slideIndex = target < 0

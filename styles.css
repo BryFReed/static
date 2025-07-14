@@ -1195,7 +1195,7 @@ footer {
   margin: 0 auto 2rem auto;
   overflow: hidden;
   position: relative;
-  min-height: 400px;
+  min-height: 420px;
 }
 
   .carousel-container {
@@ -1209,7 +1209,7 @@ footer {
     overflow: visible;
     padding: 0;
     box-sizing: border-box;
-    min-height: 280px;
+    min-height: 400px;
   }
 
 .carousel-container::before,
@@ -1696,15 +1696,17 @@ footer {
     flex: 0 0 100%;
     max-width: 100%;
     margin: 0;
+    padding: 0.2rem 0.1rem;
     border-right: 1px solid #20B2AA;
   }
   .product-slide:last-child {
     border-right: none;
   }
 
-  /* c) Make images huge—twice their old size */
+  /* c) Make images huge—2x width and height */
   .product-img {
     width: 200%;
+    height: 200%;
     margin: 0 auto 0.5rem;
     display: block;
     object-fit: contain;
@@ -1744,6 +1746,7 @@ footer {
   .carousel-wrapper {
     width: 100%;
     margin: 0;
+    margin-bottom: 0;
   }
 
   /* 2) Remove the side gutters altogether */
@@ -1887,6 +1890,16 @@ footer {
   .sailboat-icon, .bottle-icon {
     font-size: 4rem;
     margin-top: -0.8rem;
+  }
+  
+  /* Hide emojis on mobile contact page */
+  .sailboat-icon, .bottle-icon {
+    display: none;
+  }
+  
+  /* Hide emojis on mobile early access page */
+  .sailboat-emoji {
+    display: none;
   }
   
   /* How It Works Section */
