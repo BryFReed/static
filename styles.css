@@ -2206,3 +2206,51 @@ footer {
     margin-bottom: 0.75rem !important;
   }
 }
+
+/* === MOBILE SECTION BACKGROUND RESTORATION === */
+@media (max-width: 768px) {
+  /* restore the "How It Works" / Platform section background */
+  #how.section {
+    background: #4a7c7c !important;
+  }
+  
+  /* restore the "Vision" section background */
+  #vision.section {
+    background: #f0f8f8 !important;
+  }
+  
+  /* restore the "Early Access" section background */
+  #early-access.section {
+    background: #4a7c7c !important;
+  }
+  
+  /* restore the "Contact" section background */
+  #contact.section {
+    background: #4a7c7c !important;
+  }
+  
+  /* restore the "Team" section background */
+  #team.section {
+    background: #4a7c7c !important;
+  }
+}
+
+/* === MOBILE CAROUSEL REFINEMENTS === */
+@media (max-width: 768px) {
+  /* 1) Make the slide-to-slide borders blend into the background */
+  .carousel-track .product-slide {
+    /* use the same hex as your carousel background */
+    border-right: 1px solid #f0f9f8 !important;
+  }
+  .carousel-track .product-slide:last-child {
+    border-right: none !important;
+  }
+
+  /* 2) Push the nav arrows flush to the very sides */
+  .arrow-left {
+    left: 0 !important;
+  }
+  .arrow-right {
+    right: 0 !important;
+  }
+}
