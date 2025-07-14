@@ -1678,145 +1678,7 @@ footer {
     border-right: 1.2px solid #f0f8f8 !important;
   }
   
-  /* === mobile carousel tweaks === */
-  .carousel-wrapper {
-    margin-bottom: 0;            /* kill extra space under slides */
-  }
-
-  .products-showcase-section .marketplace-tagline {
-    margin-top: 0.5rem !important; /* sit tagline flush under carousel */
-  }
-
-  .carousel-track .product-slide {
-    flex: 0 0 100%;              /* one slide per frame */
-    max-width: 100%;
-    padding: 0.5rem 0.5rem;      /* slight padding inside each slide */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;                /* let content determine height */
-  }
-
-  .carousel-track .product-slide .product-img {
-    width: 90%;                  /* fill 90% of slide width */
-    height: auto;                /* keep aspect ratio */
-    max-height: 50vh;            /* cap height so it doesn't overflow */
-    object-fit: contain;
-    margin-bottom: 0.75rem;      /* space to text */
-  }
-
-  .carousel-track .product-slide .product-desc {
-    margin-top: 0;               /* sit immediately under image */
-  }
-
-  /* a) Carousel container now absolutely flush to its wrapper */
-  .carousel-wrapper,
-  .carousel-container {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  .carousel-track {
-    gap: 0;
-    padding: 0;
-  }
-
-  /* b) Each slide fills 100% of the frame—no gutters */
-  .product-slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0.2rem 0.1rem;
-    border-right: 1px solid #20B2AA;
-  }
-  .product-slide:last-child {
-    border-right: none;
-  }
-
-  /* c) Make images huge—2x width and height - REMOVED */
-
-  /* d) Text box sized to match image like desktop */
-  .product-desc {
-    width: 100%;
-    margin: 0 auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .product-desc h3 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.1;
-  }
-  .product-desc p {
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.3;
-    font-size: 0.8rem;
-    margin: 0;
-  }
-
-  /* e) Center the arrows inside the frame */
-  .arrow-left, .arrow-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 2.5rem;
-    padding: 0;
-  }
-  .arrow-left { left: 8px; }
-  .arrow-right { right: 8px; }
-
-  /* f) Remove the "bounce" shadow on mobile (it can glitch) */
-  .carousel-track.bouncing {
-    transition: none;
-  }
-  
-  /* 1) Full‑width carousel, no extra margins */
-  .carousel-wrapper {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 0;
-  }
-
-  /* 2) Remove the side gutters altogether */
-  .carousel-container::before,
-  .carousel-container::after {
-    display: none;
-  }
-
-  /* 3) Ensure the container itself also has no paddings */
-  .carousel-container {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .product-desc {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 0.1rem;
-    width: 85%;
-    margin: 0 auto;
-  }
-  
-  .product-desc h3 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.1;
-  }
-  
-  .product-desc p {
-    font-size: 0.8rem;
-    line-height: 1.3;
-    margin: 0;
-    white-space: normal;
-    word-break: break-word;
-  }
+  /* === MOBILE CAROUSEL REMOVED - CONFLICTING RULES === */
   
   /* Mobile-specific text wrapping for header */
   .products-header {
@@ -2260,9 +2122,9 @@ footer {
   }
 }
 
-/* === HIGH-SPECIFICITY MOBILE CAROUSEL OVERRIDE === */
+/* === CLEAN MOBILE CAROUSEL OVERRIDE === */
 @media (max-width: 768px) {
-  /* make carousel slide fill width & push text down */
+  /* collapse carousel margin */
   .carousel-wrapper {
     margin-bottom: 0 !important;
   }
@@ -2270,32 +2132,19 @@ footer {
     margin-top: 0.5rem !important;
   }
 
-  .carousel-container,
-  .carousel-track {
-    margin: 0 !important;
-    padding: 0 !important;
-    min-height: auto !important;
-  }
-
+  /* each slide fills the viewport width */
   .carousel-track .product-slide {
     flex: 0 0 100% !important;
     max-width: 100% !important;
     padding: 0.5rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    height: auto !important;
+    box-sizing: border-box;
   }
 
+  /* make the image fill most of the slide */
   .carousel-track .product-slide .product-img {
     width: 90% !important;
     height: auto !important;
-    max-height: 50vh !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
-  }
-
-  .carousel-track .product-slide .product-desc {
-    margin-top: 0 !important;
   }
 }
