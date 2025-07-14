@@ -583,60 +583,54 @@ document.addEventListener('DOMContentLoaded', function() {
     arrowHoldInterval = setInterval(moveRight, 32);
   });
   
-  // === MOBILE ONLY SETUP ===
+  // MOBILE‑ONLY: replace arrow behavior with half‑slide jumps
   if (window.innerWidth <= 768) {
-    const track = document.querySelector('.carousel-track');
-    const prev = document.querySelector('.arrow-left');
-    const next = document.querySelector('.arrow-right');
-    const slideCount = slides.length;
-    const slideWidth = track.clientWidth;       // px width of one slide
-    const maxIndex = slideCount - 1;             // since each slide = 1 full width
+    // disable any desktop arrow listeners if you added them already
+    prevBtn.replaceWith(prevBtn.cloneNode(true));
+    nextBtn.replaceWith(nextBtn.cloneNode(true));
+    const mPrev = document.querySelector('.arrow-left');
+    const mNext = document.querySelector('.arrow-right');
+
+    // calculate visibleSlides, maxIndex exactly as before
+    const visibleSlides = 1;
+    const maxIndex = slides.length - visibleSlides;
     let slideIndex = 0;
+    const halfStep = 0.5;
+    const overshootFrac = 0.15;
+    const bounceDur = 400; // match your CSS
 
-    // Disable bouncing entirely on mobile
-    const originalMove = moveCarousel;
-    moveCarousel = () => {/* no-op */};
-
-    // Helper to snap to an index
-    function snapTo(idx) {
-      slideIndex = Math.max(0, Math.min(maxIndex, idx));
-      track.style.transition = 'transform 300ms ease';
-      track.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+    function updateCarousel() {
+      const pct = -slideIndex * 100; // since 1 slide = 100% in mobile
+      track.style.transform = `translateX(${pct}%)`;
     }
 
-    // Half‑slide step (50% of one slide)
-    const halfStep = slideWidth / 2;
+    function mobileArrow(dir) {
+      const target = slideIndex + dir * halfStep;
+      if (target < 0 || target > maxIndex) {
+        // bounce logic
+        slideIndex = target < 0
+          ? -overshootFrac
+          : maxIndex + overshootFrac;
+        track.classList.add('bouncing');
+        updateCarousel();
+        setTimeout(() => {
+          slideIndex = Math.max(0, Math.min(maxIndex, target));
+          track.classList.remove('bouncing');
+          updateCarousel();
+        }, bounceDur);
+      } else {
+        slideIndex = target;
+        updateCarousel();
+      }
+    }
 
-    prev.addEventListener('click', () => {
-      snapTo(slideIndex - (track._offset || halfStep) / slideWidth || 1);
-    });
-    next.addEventListener('click', () => {
-      snapTo(slideIndex + (track._offset || halfStep) / slideWidth || 1);
-    });
+    mPrev.addEventListener('click', () => mobileArrow(-1));
+    mNext.addEventListener('click', () => mobileArrow( 1));
 
-    // --- TOUCH / DRAG SUPPORT ---
-    let startX, currentTranslate, isDragging = false;
-
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      currentTranslate = -slideIndex * slideWidth;
-      track.style.transition = 'none';
-      isDragging = true;
-    });
-
-    track.addEventListener('touchmove', e => {
-      if (!isDragging) return;
-      const dx = e.touches[0].clientX - startX;
-      track.style.transform = `translateX(${currentTranslate + dx}px)`;
-    });
-
-    track.addEventListener('touchend', e => {
-      isDragging = false;
-      // determine how far we moved
-      const dx = e.changedTouches[0].clientX - startX;
-      const movedSlides = Math.round(dx / slideWidth * 2) / 2; // snap to nearest 0.5
-      snapTo(slideIndex - movedSlides);
-    });
+    // stop any desktop auto‑scroll if present
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+    }
   }
 
   // Stop fast scrolling when arrow is released

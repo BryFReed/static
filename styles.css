@@ -1719,7 +1719,7 @@ footer {
     white-space: normal;
     word-break: break-word;
     line-height: 1.4;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 
   /* e) Center the arrows inside the frame */
@@ -1740,6 +1740,24 @@ footer {
     transition: none;
   }
   
+  /* 1) Full‑width carousel, no extra margins */
+  .carousel-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* 2) Remove the side gutters altogether */
+  .carousel-container::before,
+  .carousel-container::after {
+    display: none;
+  }
+
+  /* 3) Ensure the container itself also has no paddings */
+  .carousel-container {
+    padding: 0;
+    margin: 0;
+  }
+  
   .product-img {
     width: 80px;
     height: 80px;
@@ -1757,7 +1775,7 @@ footer {
   }
   
   .product-desc h3 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0.2rem;
     line-height: 1.1;
   }
@@ -1801,7 +1819,7 @@ footer {
   }
   
   .feature-desc {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
   
   /* Team Page */
@@ -1824,7 +1842,7 @@ footer {
   }
   
   .member-bio {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.5;
   }
   
@@ -1833,7 +1851,7 @@ footer {
   }
   
   .member-link {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
   
   /* Early Access Page */
@@ -1881,7 +1899,7 @@ footer {
   }
   
   .diagram-step p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   
   .step-img {
@@ -1909,7 +1927,7 @@ footer {
   
   /* Footer */
   .footer-content {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 1rem 0.5rem;
   }
   
@@ -1928,7 +1946,7 @@ footer {
   }
   
   .product-card p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   
   /* Vision Page */
@@ -1937,7 +1955,7 @@ footer {
   }
   
   .vision-content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
   }
   
