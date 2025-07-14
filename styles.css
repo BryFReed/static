@@ -63,7 +63,7 @@ nav a.cta-nav {
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(30,40,80,0.08);
   transition: background 0.2s, color 0.2s, transform 0.2s;
-  margin-left: 1.5rem;
+  margin-left: 0.5rem;
 }
 
 nav a.cta-nav:hover {
@@ -238,8 +238,16 @@ nav a.cta-nav:hover {
 .early-access-subtitle {
   font-size: 1.2rem;
   color: #f0f8f8;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.early-access-tagline {
+  font-size: 1rem;
+  color: #d4e8e8;
   margin-bottom: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-style: italic;
 }
 
 .form-container {
@@ -448,7 +456,7 @@ nav a.cta-nav:hover {
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 1;
-  opacity: 1;
+  opacity: 0.80;
   pointer-events: none;
 }
 
@@ -483,6 +491,8 @@ nav a.cta-nav:hover {
   margin-bottom: 1rem;
   text-shadow: 0 2px 16px rgba(0,0,0,0.3);
 }
+
+
 .hero-subtitle {
   font-size: 1.3rem;
   color: #f0f8f8;
@@ -495,7 +505,7 @@ nav a.cta-nav:hover {
   background: #1a3a3a;
   color: #ffffff;
   font-weight: 700;
-  padding: 0.8em 2em;
+  padding: 0.2em 0.5em;
   border-radius: 2em;
   font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -965,7 +975,7 @@ footer {
   font-weight: 700;
   color: #1a3a3a;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -979,6 +989,16 @@ footer {
 
 .products-header .highlight:hover {
   transform: scale(1.05);
+}
+
+.section-tagline {
+  font-size: 1.1rem;
+  color: #20B2AA;
+  text-align: center;
+  margin: -1rem 0 2rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-style: italic;
+  font-weight: 700;
 }
 .product-row {
   display: flex;
@@ -1269,7 +1289,7 @@ footer {
 @media (max-width: 768px) {
   /* Global scale down */
   body {
-    font-size: 0.75em;
+    font-size: 0.8em;
   }
   
   /* Header & Navigation */
@@ -1302,11 +1322,17 @@ footer {
   nav a.cta-nav {
     font-size: 0.85rem;
     padding: 0.4rem 0.7rem;
+    margin-left: 0.3rem;
   }
   
   /* Hero Section */
+  .hero {
+    min-height: 90vh;
+    height: 90vh;
+  }
+  
   .hero h1.hero-headline {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     line-height: 1.2;
   }
   
@@ -1317,23 +1343,29 @@ footer {
   
   .cta {
     font-size: 1rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.2rem 0.5rem;
     min-height: 44px;
   }
   
+
+  
   /* Section Headers */
   .products-header {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin-bottom: 1.5rem;
   }
   
   .marketplace-tagline {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin: 1.5rem 0;
   }
   
   .section h2 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+  }
+  
+  .section-tagline {
+    font-size: 1rem;
   }
   
   .section {
@@ -1348,7 +1380,8 @@ footer {
   .product-slide {
     flex: 0 0 calc(50% - 1px);
     padding: 0.5rem 0.4rem;
-    height: 280px;
+    min-height: 260px;
+    height: auto;
   }
   
   .product-img {
@@ -1375,8 +1408,8 @@ footer {
   
   /* Features Section */
   .feature-img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     margin-bottom: 0.8rem;
   }
   
@@ -1427,6 +1460,10 @@ footer {
   
   .early-access-subtitle {
     font-size: 1rem;
+  }
+  
+  .early-access-tagline {
+    font-size: 0.9rem;
   }
   
   .form-container {
@@ -1520,5 +1557,234 @@ footer {
   
   .about-card, .why-card, .market-card, .advantage-card {
     padding: 1.5rem;
+  }
+}
+
+/* Login Page Styles */
+.section#login {
+  background: #4a7c7c;
+  padding: 4rem 2rem;
+}
+
+.login-content {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-headline {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.login-subtitle {
+  font-size: 1.2rem;
+  color: #f0f8f8;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.login-tagline {
+  font-size: 1rem;
+  color: #d4e8e8;
+  margin-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-style: italic;
+}
+
+.login-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a3a3a;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #20B2AA;
+}
+
+.login-btn {
+  width: 100%;
+  background: #1a3a3a;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  min-height: 44px;
+}
+
+.login-btn:hover {
+  background: #0d2b2b;
+}
+
+.login-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.login-link {
+  font-size: 0.9rem;
+  color: #20B2AA;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: opacity 0.2s ease;
+}
+
+.login-link:hover {
+  opacity: 0.7;
+}
+
+.login-divider {
+  color: #cccccc;
+  font-weight: 600;
+}
+
+.login-notice {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #20B2AA;
+}
+
+.login-notice p {
+  font-size: 0.9rem;
+  color: #1a3a3a;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.login-notice a {
+  color: #20B2AA;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-notice a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Buttons Container */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Login CTA Button Styles */
+.login-cta {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .login-headline {
+    font-size: 2.2rem;
+  }
+  
+  .login-subtitle {
+    font-size: 1rem;
+  }
+  
+  .login-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .login-container {
+    padding: 1.5rem;
+  }
+  
+  .login-options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .login-divider {
+    display: none;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .login-cta {
+    margin-left: 0;
+  }
+}
+
+/* Extra small mobile devices - extreme aspect ratios */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 85vh;
+    height: 85vh;
+  }
+  
+  .hero h1.hero-headline {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+  
+  .product-slide {
+    min-height: 240px;
+  }
+  
+  .feature-img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .products-header {
+    font-size: 2rem;
+  }
+  
+  .marketplace-tagline {
+    font-size: 2rem;
   }
 }
