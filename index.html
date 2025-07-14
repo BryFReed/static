@@ -140,9 +140,10 @@
     </div>
   </section>
   <section id="offer" class="products-showcase-section">
-    <h2 class="products-header"><span class="highlight">Unlimited</span><br>Financial Expression</h2>
+    <h2 class="products-header"><span class="highlight">Unlimited</span> Financial Expression</h2>
     <p class="section-tagline"><em>Trade Your Edge. On Your Terms.</em></p>
-    <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
             <button class="arrow-left">〈</button>
       <div class="carousel-track">
         <!-- Duplicate last 3 slides at the beginning for seamless loop -->
@@ -264,6 +265,7 @@
       </div>
       <button class="arrow-right">〉</button>
     </div>
+    </div>
     
     <!-- Marketplace tagline -->
     <h2 class="marketplace-tagline">
@@ -374,59 +376,160 @@ document.addEventListener('DOMContentLoaded', function() {
   const slides = Array.from(document.querySelectorAll('.product-slide'));
   const prevBtn = document.querySelector('.arrow-left');
   const nextBtn = document.querySelector('.arrow-right');
-  let currentIndex = 0;
+  
+  if (!track || !slides.length || !prevBtn || !nextBtn) {
+    console.error('Carousel elements not found!');
+    return;
+  }
+  
   const totalSlides = slides.length;
+  const visibleSlides = window.innerWidth <= 768 ? 1 : 3;
+  const maxIndex = totalSlides - visibleSlides;
+  const slideWidth = window.innerWidth <= 768 ? 100 : (100/3);
+  
+  let slideIndex = 0;
+  let scrollDirection = 1; // 1 for forward, -1 for backward
   let autoScrollInterval;
   let isAutoScrolling = true;
+  let isArrowHeld = false;
+  let arrowHoldInterval;
 
   function updateCarousel() {
-    // Check if mobile (width <= 768px)
-    const isMobile = window.innerWidth <= 768;
+    const translateX = -slideIndex * slideWidth;
+    track.style.transform = `translateX(${translateX}%)`;
+  }
+
+  function moveCarousel(speed = 1) {
+    const moveAmount = 0.00975 * Math.abs(speed);     // smooth per-tick increment
     
-    if (isMobile) {
-      // On mobile: each slide takes full width, so translate by 100% per slide
-      const translateX = -(currentIndex * 100);
-      track.style.transform = `translateX(${translateX}%)`;
+    // advance smoothly
+    slideIndex += scrollDirection * moveAmount;
+
+    // if we just moved past either end…
+    if (slideIndex > maxIndex || slideIndex < 0) {
+      // 1) temporarily overshoot by a fraction
+      const overshootFrac = 0.15;
+      slideIndex = 
+        slideIndex > maxIndex
+          ? maxIndex + overshootFrac
+          : -overshootFrac;
+
+      track.classList.add('bouncing');
+      updateCarousel();
+
+      // 2) after the bounce animation, clamp & flip
+      setTimeout(() => {
+        slideIndex = Math.max(0, Math.min(maxIndex, slideIndex));
+        scrollDirection *= -1;           // reverse direction
+        track.classList.remove('bouncing');
+        updateCarousel();
+      }, 400);  // match your 400ms CSS transition
+
     } else {
-      // On desktop: show 3 slides, translate by 33.333% per slide
-      const translateX = -(currentIndex * (100 / 3));
-      track.style.transform = `translateX(${translateX}%)`;
+      // normal smooth movement
+      updateCarousel();
     }
   }
 
-  function nextSlide() {
-    // Check if mobile (width <= 768px)
-    const isMobile = window.innerWidth <= 768;
-    const slidesPerView = isMobile ? 1 : 3;
-    
-    // Move by 1 product at a time, loop back to start
-    currentIndex++;
-    if (currentIndex >= totalSlides) {
-      currentIndex = 0; // Jump to first slide
-    }
-    updateCarousel();
-  }
+  // Add hover and click functionality
+  let expandedSlide = null;
+  let isPaused = false;
 
-  function prevSlide() {
-    // Check if mobile (width <= 768px)
-    const isMobile = window.innerWidth <= 768;
-    const slidesPerView = isMobile ? 1 : 3;
-    
-    // Move by 1 product at a time, loop back to end
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = totalSlides - 1; // Jump to last slide
+  // Add hover effects to slides
+  slides.forEach((slide, index) => {
+    slide.addEventListener('mouseenter', () => {
+      // Only apply hover effects if not paused
+      if (!isPaused) {
+        slide.style.transform = 'scale(1.05)';
+        slide.style.boxShadow = '0 8px 25px rgba(32, 178, 170, 0.3)';
+        slide.style.transition = 'all 0.3s ease';
+        
+        // Blur and dim other slides on hover
+        slides.forEach(s => {
+          if (s !== slide) {
+            s.style.filter = 'blur(2px)';
+            s.style.opacity = '0.3';
+          }
+        });
+      }
+    });
+
+    slide.addEventListener('mouseleave', () => {
+      // Only remove hover effects if not paused
+      if (!isPaused) {
+        slide.style.transform = 'scale(1)';
+        slide.style.boxShadow = 'none';
+        
+        // Remove blur from other slides
+        slides.forEach(s => {
+          s.style.filter = 'none';
+          s.style.opacity = '1';
+        });
+      }
+    });
+
+    slide.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      if (expandedSlide === slide) {
+        // Resume auto-scroll and remove hover effects
+        slides.forEach(s => {
+          s.style.transform = 'scale(1)';
+          s.style.boxShadow = 'none';
+          s.style.filter = 'none';
+          s.style.opacity = '1';
+        });
+        
+        expandedSlide = null;
+        isPaused = false;
+        resumeAutoScroll();
+      } else {
+        // Pause auto-scroll
+        if (expandedSlide) {
+          // Resume previous pause and remove hover effects
+          slides.forEach(s => {
+            s.style.transform = 'scale(1)';
+            s.style.boxShadow = 'none';
+            s.style.filter = 'none';
+            s.style.opacity = '1';
+          });
+          
+          expandedSlide = null;
+          isPaused = false;
+          resumeAutoScroll();
+        }
+        
+        expandedSlide = slide;
+        isPaused = true;
+        stopAutoScroll();
+      }
+    });
+  });
+
+  // Click outside to resume
+  document.addEventListener('click', (e) => {
+    if (isPaused) {
+      // Remove hover effects from all slides
+      slides.forEach(s => {
+        s.style.transform = 'scale(1)';
+        s.style.boxShadow = 'none';
+        s.style.filter = 'none';
+        s.style.opacity = '1';
+      });
+      
+      expandedSlide = null;
+      isPaused = false;
+      resumeAutoScroll();
     }
-    updateCarousel();
-  }
+  });
 
   function startAutoScroll() {
     if (autoScrollInterval) clearInterval(autoScrollInterval);
     autoScrollInterval = setInterval(() => {
-      if (isAutoScrolling) {
-        nextSlide();
+      if (isAutoScrolling && !isArrowHeld && !isPaused) {
+        moveCarousel(1);
       }
-    }, 5000); // Scroll every 3 seconds
+    }, 32); // Update every 32ms for smooth scrolling
   }
 
   function stopAutoScroll() {
@@ -438,22 +541,69 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Event listeners for manual navigation
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener('mousedown', () => {
     stopAutoScroll();
-    prevSlide();
-    setTimeout(resumeAutoScroll, 5000); // Resume auto-scroll after 5 seconds of inactivity
+    isArrowHeld = true;
+    
+    const moveLeft = () => {
+      if (slideIndex > 0) {
+        slideIndex -= 0.00975 * 8;
+        updateCarousel();
+      }
+    };
+    
+    moveLeft();
+    arrowHoldInterval = setInterval(moveLeft, 32);
   });
   
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener('mousedown', () => {
     stopAutoScroll();
-    nextSlide();
-    setTimeout(resumeAutoScroll, 5000); // Resume auto-scroll after 5 seconds of inactivity
+    isArrowHeld = true;
+    
+    const moveRight = () => {
+      if (slideIndex < maxIndex) {
+        slideIndex += 0.00975 * 8;
+        updateCarousel();
+      }
+    };
+    
+    moveRight();
+    arrowHoldInterval = setInterval(moveRight, 32);
   });
 
-  // Pause auto-scroll when hovering over carousel
-  const carouselContainer = document.querySelector('.carousel-container');
-  carouselContainer.addEventListener('mouseenter', stopAutoScroll);
-  carouselContainer.addEventListener('mouseleave', resumeAutoScroll);
+  // Stop fast scrolling when arrow is released
+  prevBtn.addEventListener('mouseup', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000); // Resume auto-scroll after 2 seconds
+  });
+  
+  nextBtn.addEventListener('mouseup', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000); // Resume auto-scroll after 2 seconds
+  });
+
+  // Also handle mouseleave to stop fast scrolling
+  prevBtn.addEventListener('mouseleave', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000);
+  });
+  
+  nextBtn.addEventListener('mouseleave', () => {
+    isArrowHeld = false;
+    if (arrowHoldInterval) {
+      clearInterval(arrowHoldInterval);
+    }
+    setTimeout(resumeAutoScroll, 2000);
+  });
 
   // Handle window resize
   window.addEventListener('resize', () => {
