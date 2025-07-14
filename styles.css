@@ -2283,28 +2283,7 @@ footer {
     line-height: 1.2;
   }
   
-  /* Mobile-specific headline override */
-  .how-headline {
-    font-size: 3rem !important;
-    color: transparent !important;
-  }
-  
-  .how-headline::before {
-    content: 'How it Works';
-    display: block;
-    color: #ffffff !important;
-  }
-  
-  /* Reduce spacing after headline on mobile */
-  .how-headline {
-    margin-bottom: 1rem !important;
-  }
-  
   /* Make both 2-word headlines the same size on mobile */
-  .how-headline {
-    font-size: 2.4rem !important;
-  }
-  
   .backend-headline {
     font-size: 2.4rem !important;
   }
@@ -2363,4 +2342,30 @@ section#contact.section {
 
 section#team.section {
   background-color: #4a7c7c !important;
+}
+
+/* === MOBILE TWO-WORD HEADLINE FIX === */
+@media (max-width: 768px) {
+  /* Hide the third word ("ACCESSIBLE") */
+  .how-headline span:last-child {
+    display: none !important;
+  }
+
+  /* Force the container to flex two items, center them, equal-space them */
+  .how-headline {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5em;               /* tweak this to taste */
+    font-size: 2.4rem !important;  /* match your other mobile two-word headings */
+    margin-bottom: 1rem !important;/* pull it up closer to the diagram */
+    text-transform: uppercase;
+  }
+
+  /* Make sure the two spans inherit that size and color */
+  .how-headline span {
+    display: inline-block !important;
+    font-size: inherit !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+  }
 }
