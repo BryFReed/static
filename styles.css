@@ -1103,7 +1103,7 @@ footer {
 }
 
 .products-showcase-section {
-  background: #f0f8f8;
+  background: #f0f9f8;
   padding: 2.5rem 0 4rem 0;
   width: 100%;
   max-width: none;
@@ -1219,7 +1219,7 @@ footer {
   top: 0;
   bottom: 0;
   width:3%;
-  background: #f0f8f8;
+  background: #f0f9f8;
   z-index: 5;
   pointer-events: none;
 }
