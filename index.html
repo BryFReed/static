@@ -16,8 +16,10 @@
         dropdownTrigger.addEventListener('click', function(event) {
           event.preventDefault();
           event.stopPropagation();
+          event.stopImmediatePropagation();
           dropdownTrigger.classList.toggle('active');
           mobileNav.classList.toggle('active');
+          return false;
         });
         
         // Close dropdown when clicking outside
