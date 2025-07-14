@@ -2255,14 +2255,6 @@ footer {
   }
 }
 
-/* === FINAL MOBILE SECTION OVERRIDE === */
-@media (max-width: 768px) {
-  /* explicitly restore "How It Works" to teal */
-  section#how {
-    background-color: #4a7c7c !important;
-  }
-}
-
 /* === FINAL MOBILE BORDER FIX === */
 @media (max-width: 768px) {
   /* hide or blend the separators */
@@ -2270,4 +2262,25 @@ footer {
     /* remove them altogether */
     border-right: none !important;
   }
+}
+
+/* === SECTION-SPECIFIC BACKGROUND OVERRIDES === */
+section#how.section {
+  background-color: #4a7c7c !important;
+}
+
+section#vision.section {
+  background-color: #f0f8f8 !important;
+}
+
+section#early-access.section {
+  background-color: #4a7c7c !important;
+}
+
+section#contact.section {
+  background-color: #4a7c7c !important;
+}
+
+section#team.section {
+  background-color: #4a7c7c !important;
 }
