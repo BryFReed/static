@@ -2314,6 +2314,11 @@ footer {
   }
 }
 
+/* === MOBILE HEADLINE HIDE ON DESKTOP === */
+.how-headline-mobile {
+  display: none;
+}
+
 /* === DESKTOP MARKETPLACE TAGLINE FIX === */
 @media (min-width: 769px) {
   .marketplace-tagline br {
@@ -2344,8 +2349,24 @@ section#team.section {
 
 /* === MOBILE TWO-WORD HEADLINE FIX === */
 @media (max-width: 768px) {
-  /* 2) Force both containers to be flex rows of two items */
-  .how-headline,
+  /* Hide desktop headline on mobile */
+  .how-headline {
+    display: none !important;
+  }
+  
+  /* Show mobile headline on mobile */
+  .how-headline-mobile {
+    display: block !important;
+    font-size: 2.4rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    text-transform: uppercase !important;
+  }
+  
+  /* 2) Force backend headline to be flex row of two items */
   .backend-headline {
     display: flex !important;
     justify-content: center !important;
@@ -2355,7 +2376,6 @@ section#team.section {
   }
 
   /* 3) Make sure each remaining <span> inherits that size and line-height */
-  .how-headline span,
   .backend-headline span {
     font-size: inherit !important;
     line-height: 1 !important;
