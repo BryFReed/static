@@ -1654,8 +1654,8 @@ footer {
   
   .product-slide {
     flex: 0 0 100%;
-    padding: 1.5rem 1rem;
-    min-height: 320px;
+    padding: 1rem 0.8rem;
+    min-height: 280px;
     height: auto;
     border-right: none !important;
     width: 100%;
@@ -1665,9 +1665,9 @@ footer {
   }
   
   .product-img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.8rem;
   }
   
   .product-desc {
@@ -1675,18 +1675,18 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 0.5rem;
+    padding: 0 0.3rem;
   }
   
   .product-desc h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
   }
   
   .product-desc p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.4;
     margin: 0;
   }
   

@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function moveCarousel(speed = 1) {
     const isMobile = window.innerWidth <= 768;
-    const mobileSpeedMultiplier = 0.4; // 40% of desktop speed
+    const mobileSpeedMultiplier = 0.2; // 20% of desktop speed
     const baseMoveAmount = 0.00975;
     const moveAmount = baseMoveAmount * Math.abs(speed) * (isMobile ? mobileSpeedMultiplier : 1);
     
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (isAutoScrolling && !isArrowHeld && !isPaused) {
         moveCarousel(1);
       }
-    }, 32); // Update every 32ms for smooth scrolling
+    }, 16.67); // Update every ~16.67ms for 60fps (1000ms/60)
   }
 
   function stopAutoScroll() {
