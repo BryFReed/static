@@ -39,12 +39,35 @@
       // Mobile text changes
       function updateMobileText() {
         if (window.innerWidth <= 768) {
+          // Change "SEAMLESS INTUITIVE ACCESSIBLE" to "Seamless & Intuitive"
+          const howHeadline = document.querySelector('.how-headline');
+          if (howHeadline) {
+            howHeadline.innerHTML = '<span>Seamless & Intuitive</span>';
+          }
+          
+          // Change "SECURE RELIABLE PERMISSIONLESS" to "Secure & Reliable"
+          const secureHeadline = document.querySelector('.backend-headline');
+          if (secureHeadline) {
+            secureHeadline.innerHTML = '<span>Secure & Reliable</span>';
+          }
+          
           // Make hero subtitle one line on mobile
           const heroSubtitle = document.querySelector('.hero-subtitle');
           if (heroSubtitle) {
             heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman. Access institutional-level strategies directly, and build wealth with true independence.';
           }
         } else {
+          // Restore original text on desktop
+          const howHeadline = document.querySelector('.how-headline');
+          if (howHeadline) {
+            howHeadline.innerHTML = '<span>SEAMLESS</span> <span>INTUITIVE</span> <span>ACCESSIBLE</span>';
+          }
+          
+          const secureHeadline = document.querySelector('.backend-headline');
+          if (secureHeadline) {
+            secureHeadline.innerHTML = '<span>SECURE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>RELIABLE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>PERMISSIONLESS</span>';
+          }
+          
           // Restore hero subtitle with line break on desktop
           const heroSubtitle = document.querySelector('.hero-subtitle');
           if (heroSubtitle) {
