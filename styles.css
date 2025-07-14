@@ -1701,6 +1701,11 @@ footer {
   .products-showcase-section .marketplace-tagline {
     margin-top: 0;      /* tagline sits immediately under slides */
   }
+  
+  /* Override marketplace tagline spacing to remove white space */
+  .marketplace-tagline {
+    margin: 0.5rem 0 !important;  /* minimal spacing */
+  }
 
   /* a) Carousel container now absolutely flush to its wrapper */
   .carousel-wrapper,
@@ -1782,12 +1787,6 @@ footer {
   .carousel-container {
     padding: 0;
     margin: 0;
-  }
-  
-  .product-img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 0.4rem;
   }
   
   .product-desc {
