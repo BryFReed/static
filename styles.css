@@ -46,6 +46,12 @@ header {
   pointer-events: auto;
   text-decoration: none;
   color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
 .mobile-dropdown-trigger:hover {
@@ -61,6 +67,10 @@ header {
 
 .mobile-dropdown-trigger.active .dropdown-arrow {
   transform: rotate(180deg);
+}
+
+.mobile-dropdown-trigger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .logo-img {
   height: 40px;
@@ -1468,7 +1478,33 @@ footer {
   
   /* Add circles around hero CTA buttons on mobile */
   .hero-buttons {
-    display: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  .hero-buttons .cta {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #20B2AA !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease !important;
+    line-height: 1 !important;
+    display: inline !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: auto !important;
+  }
+  
+  .hero-buttons .cta:hover {
+    opacity: 0.7 !important;
   }
   
   .hero-buttons .cta:hover {
