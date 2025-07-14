@@ -2280,7 +2280,7 @@ footer {
   .products-header .highlight::after {
     content: '\A';
     white-space: pre;
-    line-height: 0.5;
+    line-height: 0.8;
   }
   
   .marketplace-tagline {
