@@ -1678,6 +1678,58 @@ footer {
     border-right: 1.2px solid #f0f8f8 !important;
   }
   
+  /* ─── Mobile carousel tweaks ─── */
+  /* 1) Make slide gutters ocean‑green instead of white */
+  .product-slide {
+    border-right: 1px solid #20B2AA;    /* ocean green */
+  }
+  .product-slide:last-child {
+    border-right: none;
+  }
+
+  /* 2) Shrink the text box by 15% (→ 75% width), center it, and force wrapping */
+  .product-desc {
+    width: 75%;
+    margin: 0 auto;
+  }
+  .product-desc p {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+
+  /* 3) Make images as big as the text container */
+  .product-img {
+    width: 75%;
+    margin: 0 auto 0.5rem;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* 4) Kill any extra whitespace around the slides */
+  .carousel-track {
+    gap: 0;
+    padding: 0;
+  }
+  .carousel-container,
+  .carousel-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 5) Pull the arrows inside and keep them vertically centered */
+  .arrow-left, .arrow-right {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .arrow-left {
+    left: 10px;
+  }
+  .arrow-right {
+    right: 10px;
+  }
+  
   .product-img {
     width: 80px;
     height: 80px;

@@ -583,28 +583,23 @@ document.addEventListener('DOMContentLoaded', function() {
     arrowHoldInterval = setInterval(moveRight, 32);
   });
   
-  // Add click handlers for mobile slide-by-slide navigation
-  prevBtn.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      stopAutoScroll();
-      if (slideIndex > 0) {
-        slideIndex--;
-        updateCarousel();
-      }
-      setTimeout(resumeAutoScroll, 2000);
-    }
-  });
-  
-  nextBtn.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-      stopAutoScroll();
-      if (slideIndex < maxIndex) {
-        slideIndex++;
-        updateCarousel();
-      }
-      setTimeout(resumeAutoScroll, 2000);
-    }
-  });
+  // Mobile-specific arrow handling (one slide at a time)
+  if (window.innerWidth <= 768) {
+    // remove the old mousedown/up listeners if you attached them above
+    prevBtn.replaceWith(prevBtn.cloneNode(true));
+    nextBtn.replaceWith(nextBtn.cloneNode(true));
+    const [newPrev, newNext] = [document.querySelector('.arrow-left'), document.querySelector('.arrow-right')];
+
+    newPrev.addEventListener('click', () => {
+      slideIndex = Math.max(0, Math.floor(slideIndex) - 1);
+      updateCarousel();
+    });
+
+    newNext.addEventListener('click', () => {
+      slideIndex = Math.min(maxIndex, Math.ceil(slideIndex) + 1);
+      updateCarousel();
+    });
+  }
 
   // Stop fast scrolling when arrow is released
   prevBtn.addEventListener('mouseup', () => {
