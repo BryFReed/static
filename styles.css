@@ -673,7 +673,7 @@ nav a.cta-nav:hover {
 }
 
 .section#how {
-  background: #4a7c7c;
+  background: #f0f8f8;
 }
 
 .section#vision {
@@ -2195,13 +2195,12 @@ footer {
     max-width: 100% !important;
     padding: 0.5rem !important;
     box-sizing: border-box;
-    background: transparent !important;
-    border-right: 1.2px solid #f0f9f8 !important;
+    background: transparent !important; /* inherit section background */
   }
 
   /* make the image fill most of the slide */
   .carousel-track .product-slide .product-img {
-    width: 72% !important;
+    width: 90% !important;
     height: auto !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
