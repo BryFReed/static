@@ -1384,6 +1384,18 @@ footer {
   display: inline-block;
 }
 
+/* Hide mobile break on desktop */
+.marketplace-tagline .mobile-break {
+  display: none;
+}
+
+/* Style marketplace text on desktop */
+.marketplace-tagline .marketplace-text {
+  color: #1a3a3a;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
 .marketplace-tagline .highlight:hover {
   transform: scale(1.05);
 }
@@ -1679,20 +1691,6 @@ footer {
   }
   
   /* === MOBILE CAROUSEL REMOVED - CONFLICTING RULES === */
-  
-  /* now 20% smaller */
-  .product-img {
-    width: 160%;
-    height: 160%;
-    margin: 0 auto 0.5rem;
-    display: block;
-    object-fit: contain;
-  }
-  
-  /* Make marketplace tagline two lines on mobile */
-  .marketplace-tagline .highlight {
-    display: block;
-  }
   
   /* Mobile-specific text wrapping for header */
   .products-header {
@@ -2160,5 +2158,17 @@ footer {
     height: auto !important;
     object-fit: contain !important;
     margin-bottom: 0.75rem !important;
+  }
+
+  /* Mobile marketplace tagline - two lines like "Unlimited Financial Expression" */
+  .marketplace-tagline .mobile-break {
+    display: block !important;
+  }
+  
+  .marketplace-tagline .marketplace-text {
+    display: block !important;
+    color: #1a3a3a !important;
+    font-weight: 700 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
 }
