@@ -13,7 +13,9 @@
       const mobileNav = document.querySelector('.mobile-nav');
       
       if (dropdownTrigger && mobileNav) {
-        dropdownTrigger.addEventListener('click', function() {
+        dropdownTrigger.addEventListener('click', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
           dropdownTrigger.classList.toggle('active');
           mobileNav.classList.toggle('active');
         });
@@ -25,6 +27,11 @@
             mobileNav.classList.remove('active');
           }
         });
+        
+        // Prevent dropdown from closing when clicking inside mobile nav
+        mobileNav.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
       }
     });
   </script>
@@ -34,7 +41,7 @@
     <div class="logo-img-wrap mobile-dropdown-trigger">
       <img src="freeport.png" alt="Freeport Logo" class="logo-img" />
       <div class="logo-text">Freeport</div>
-      <div class="dropdown-arrow">▼</div>
+      <span class="dropdown-arrow">▼</span>
     </div>
     <nav class="desktop-nav">
       <a href="index.html" class="home-nav">Home</a>

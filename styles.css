@@ -33,10 +33,12 @@ header {
 
 .dropdown-arrow {
   display: none;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   color: #fff;
-  margin-left: 0.3rem;
+  margin-left: 0.1rem;
   transition: transform 0.3s ease;
+  pointer-events: none;
+  user-select: none;
 }
 
 .mobile-dropdown-trigger {
