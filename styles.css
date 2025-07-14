@@ -1619,13 +1619,13 @@ footer {
   /* Section Headers */
   .products-header {
     font-size: 2.4rem;
-    margin: 1.5rem 0 !important;
+    margin-bottom: 1.5rem;
     line-height: 0.9;
   }
   
   .marketplace-tagline {
     font-size: 2.4rem;
-    margin: 1.5rem 0 !important;
+    margin: 1.5rem 0;
   }
   
   .section h2 {
@@ -1680,7 +1680,19 @@ footer {
   
   /* === MOBILE CAROUSEL REMOVED - CONFLICTING RULES === */
   
-  /* now 20% smaller - REMOVED (will use bottom override instead) */
+  /* now 20% smaller */
+  .product-img {
+    width: 160%;
+    height: 160%;
+    margin: 0 auto 0.5rem;
+    display: block;
+    object-fit: contain;
+  }
+  
+  /* Make marketplace tagline two lines on mobile */
+  .marketplace-tagline .highlight {
+    display: block;
+  }
   
   /* Mobile-specific text wrapping for header */
   .products-header {
@@ -2142,26 +2154,11 @@ footer {
     box-sizing: border-box;
   }
 
-  /* make the image fill most of the slide - REMOVED (using 160% instead) */
-  
-  /* Ensure consistent spacing between headers and taglines - REMOVED (will use bottom override) */
-}
-
-/* === FINAL MOBILE OVERRIDE - HIGHEST SPECIFICITY === */
-@media (max-width: 768px) {
-  .carousel-container .carousel-track .product-slide .product-img {
-    width: 160% !important;   /* 20% smaller than 200% */
+  /* make the image fill most of the slide */
+  .carousel-track .product-slide .product-img {
+    width: 90% !important;
     height: auto !important;
-    margin-bottom: 0.5rem !important;
     object-fit: contain !important;
-  }
-  
-  /* Consistent spacing between headers and taglines */
-  .products-showcase-section .products-header {
-    margin: 1.5rem 0 !important;
-  }
-  
-  .products-showcase-section .marketplace-tagline {
-    margin: 1.5rem 0 !important;
+    margin-bottom: 0.75rem !important;
   }
 }
