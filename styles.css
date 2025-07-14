@@ -1595,7 +1595,7 @@ footer {
   
   .hero h1.hero-headline {
     font-size: 2.4rem;
-    line-height: 1.2;
+    git : 1.2;
     margin-bottom: 0.8rem;
   }
   
@@ -2281,6 +2281,20 @@ footer {
     content: '\A';
     white-space: pre;
     line-height: 1.2;
+  }
+  
+  /* Mobile-specific headline override */
+  .how-headline {
+    font-size: 2.4rem !important;
+  }
+  
+  .how-headline span {
+    display: none !important;
+  }
+  
+  .how-headline::before {
+    content: 'How it Works';
+    display: block;
   }
   
   .marketplace-tagline {
