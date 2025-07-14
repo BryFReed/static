@@ -1679,6 +1679,29 @@ footer {
   }
   
   /* === MOBILE ONLY OVERHAUL === */
+  /* 1) One-slide jumps — JS already uses fullStep = 1.0, so no change needed there */
+
+  /* 2) Double the PNG size */
+  .product-img {
+    width: 200%;
+    height: 200%;
+    object-fit: contain;
+  }
+
+  /* 3) Remove gutter between slides */
+  .product-slide {
+    margin: 0;          /* no side-gaps */
+    padding: 0.2rem;    /* just a little breathing room inside */
+  }
+
+  /* 4) Flush carousel right down to the tagline */
+  .carousel-wrapper {
+    margin-bottom: 0;   /* kill the bottom margin */
+  }
+  .products-showcase-section .marketplace-tagline {
+    margin-top: 0;      /* tagline sits immediately under slides */
+  }
+
   /* a) Carousel container now absolutely flush to its wrapper */
   .carousel-wrapper,
   .carousel-container {

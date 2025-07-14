@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function moveCarousel(speed = 1) {
     const isMobile = window.innerWidth <= 768;
     const mobileSpeedMultiplier = 0.2; // 20% of desktop speed
-    const baseMoveAmount = 0.00975;
+    const baseMoveAmount = 0.005484375; // Reduced by another 25% for even slower desktop speed
     const moveAmount = baseMoveAmount * Math.abs(speed) * (isMobile ? mobileSpeedMultiplier : 1);
     
     // advance smoothly
@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const moveLeft = () => {
       if (slideIndex > 0) {
-        slideIndex -= 0.00975 * 8;
+        slideIndex -= 0.005484375 * 8; // Reduced by another 25% to match new speed
         updateCarousel();
       }
     };
@@ -574,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const moveRight = () => {
       if (slideIndex < maxIndex) {
-        slideIndex += 0.00975 * 8;
+        slideIndex += 0.005484375 * 8; // Reduced by another 25% to match new speed
         updateCarousel();
       }
     };
