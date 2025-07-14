@@ -1849,9 +1849,7 @@ footer {
   }
   
   /* How It Works Section */
-  .how-headline {
-    font-size: 1.8rem;
-  }
+  /* .how-headline font-size removed - handled by JavaScript and CSS at bottom */
   
   .diagram-step h4 {
     font-size: 1.1rem;
