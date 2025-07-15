@@ -2472,29 +2472,21 @@ section#team.section {
 
 @media (max-width: 768px) {
   .contact-emoji-heading {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1.5rem !important;
-    font-size: 3rem !important;
-    margin: 1.5rem 0 !important;
-    width: 100% !important;
+    margin: 0.5rem 0 !important;
   }
-  .contact-emoji {
-    font-size: 3rem !important;
-    display: inline-block !important;
-    line-height: 1 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  .contact-message p {
+    margin-bottom: 0.5rem !important;
   }
 }
 
 @media (max-width: 768px) {
   .contact-emoji-heading {
-    margin: 0.5rem 0 !important;
+    margin: 0.25rem 0 !important;
   }
   .contact-message p {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .message-with-icon {
+    margin-bottom: 0.25rem !important;
   }
 }
