@@ -2460,8 +2460,9 @@ section#team.section {
   }
   
   .contact-emoji {
-    font-size: 9rem !important;
+    font-size: 13.5rem !important;
     line-height: 1 !important;
     display: inline-block !important;
+    outline: 2px solid blue !important; /* DEBUG: Remove after confirming size */
   }
 }
