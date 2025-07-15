@@ -1848,20 +1848,22 @@ footer {
     display: none;
   }
   
-  /* Contact emoji heading for mobile */
-  .contact-emoji-headline {
-    font-size: 2rem !important;
-    margin: 1.5rem 0 !important;
-    gap: 1.5rem !important;
+  /* Ensure contact emojis show on mobile */
+  .contact-emoji-container {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    gap: 1rem !important;
+    margin: 1.5rem 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
   }
   
   .contact-emoji {
-    font-size: inherit !important;
-    display: inline-block !important;
+    font-size: 9rem !important;
     line-height: 1 !important;
+    display: inline-block !important;
   }
   
   /* Hide emojis on mobile early access page */
@@ -2337,16 +2339,14 @@ footer {
   }
   
   /* Contact page emojis styling for mobile */
-  .contact-emoji-container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1rem !important;
+  .contact-emoji-heading {
+    font-size: 3rem !important;
     margin: 1.5rem 0 !important;
+    gap: 1.5rem !important;
   }
   
   .contact-emoji {
-    font-size: 3rem !important;
+    font-size: inherit !important;
     line-height: 1 !important;
     display: inline-block !important;
   }
@@ -2420,16 +2420,14 @@ section#team.section {
   }
   
   /* Contact page emojis styling for mobile */
-  .contact-emoji-container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 1rem !important;
+  .contact-emoji-heading {
+    font-size: 3rem !important;
     margin: 1.5rem 0 !important;
+    gap: 1.5rem !important;
   }
   
   .contact-emoji {
-    font-size: 3rem !important;
+    font-size: inherit !important;
     line-height: 1 !important;
     display: inline-block !important;
   }
@@ -2443,8 +2441,8 @@ section#team.section {
 }
 
 /* Contact emoji heading styles */
-.contact-emoji-headline {
-  font-size: 1.5rem;
+.contact-emoji-heading {
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
@@ -2467,25 +2465,7 @@ section#team.section {
 
 /* Hide contact emoji heading on desktop */
 @media (min-width: 769px) {
-  .contact-emoji-headline {
+  .contact-emoji-heading {
     display: none !important;
-  }
-}
-
-/* === FINAL MOBILE CONTACT EMOJI OVERRIDE === */
-@media (max-width: 768px) {
-  .contact-emoji-headline {
-    font-size: 2rem !important;
-    margin: 1.5rem 0 !important;
-    gap: 1.5rem !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  
-  .contact-emoji {
-    font-size: inherit !important;
-    display: inline-block !important;
-    line-height: 1 !important;
   }
 }
