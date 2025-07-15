@@ -2500,3 +2500,9 @@ section#team.section {
     outline: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  .contact-emoji-headline {
+    font-size: 1rem !important;
+  }
+}
