@@ -2319,6 +2319,32 @@ footer {
   .contact-message p {
     margin-bottom: 1rem !important;
   }
+  
+  /* Mobile emojis styling - added here for higher specificity */
+  .hero-emoji-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin: 1.5rem 0 !important;
+  }
+  
+  .hero-emoji {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+  }
+  
+  /* Second part of hero subtitle on mobile */
+  .hero-subtitle-second {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #fff !important;
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    font-family: Didot, serif !important;
+  }
 }
 
 /* === MOBILE HEADLINE HIDE ON DESKTOP === */
@@ -2422,7 +2448,4 @@ section#team.section {
   }
 }
 
-/* Default hide emoji container */
-.hero-emoji-container {
-  display: none;
-}
+/* Default hide emoji container - removed to allow mobile override */

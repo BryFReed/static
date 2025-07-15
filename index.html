@@ -70,11 +70,7 @@
             heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman.';
           }
           
-          // Show emoji container on mobile
-          const emojiContainer = document.querySelector('.hero-emoji-container');
-          if (emojiContainer) {
-            emojiContainer.style.display = 'flex';
-          }
+          // Emoji container will be shown by CSS media query
           
           // Add second part after emojis
           const heroContent = document.querySelector('.hero-content');
@@ -112,11 +108,7 @@
             heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman.<br>Access institutional-level strategies directly, and build wealth with true independence.';
           }
           
-          // Hide emoji container on desktop
-          const emojiContainer = document.querySelector('.hero-emoji-container');
-          if (emojiContainer) {
-            emojiContainer.style.display = 'none';
-          }
+          // Emoji container will be hidden by CSS media query
           
           // Remove second part on desktop
           const secondPart = document.querySelector('.hero-subtitle-second');
