@@ -1848,6 +1848,15 @@ footer {
     display: none;
   }
   
+  /* Remove space between paragraphs on mobile early access page */
+  .early-access-subtitle {
+    margin-bottom: 0.5rem;
+  }
+  
+  .early-access-tagline {
+    margin-bottom: 2rem;
+  }
+  
   /* How It Works Section */
   /* .how-headline font-size removed - handled by JavaScript and CSS at bottom */
   
