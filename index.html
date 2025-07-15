@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function moveCarousel(speed = 1) {
     const isMobile = window.innerWidth <= 768;
     const mobileSpeedMultiplier = 0.2; // 20% of desktop speed
-    const baseMoveAmount = 0.005484375; // Reduced by another 25% for even slower desktop speed
+    const baseMoveAmount = 0.0038390625; // Reduced by another 30% for even slower desktop speed (0.005484375 * 0.7)
     const moveAmount = baseMoveAmount * Math.abs(speed) * (isMobile ? mobileSpeedMultiplier : 1);
     
     // advance smoothly
@@ -444,18 +444,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (slideIndex > maxIndex || slideIndex < 0) {
       // 1) temporarily overshoot by a fraction
       const overshootFrac = 0.15;
-      slideIndex = 
-        slideIndex > maxIndex
-          ? maxIndex + overshootFrac
-          : -overshootFrac;
+      const wasAtRightEnd = slideIndex > maxIndex;
+      slideIndex = wasAtRightEnd
+        ? maxIndex + overshootFrac
+        : -overshootFrac;
 
       track.classList.add('bouncing');
       updateCarousel();
 
       // 2) after the bounce animation, clamp & flip
       setTimeout(() => {
+        // Clamp to valid bounds
         slideIndex = Math.max(0, Math.min(maxIndex, slideIndex));
-        scrollDirection *= -1;           // reverse direction
+        
+        // Reverse direction only if we actually hit the boundary
+        if (wasAtRightEnd && slideIndex >= maxIndex) {
+          scrollDirection = -1; // reverse to go left
+        } else if (!wasAtRightEnd && slideIndex <= 0) {
+          scrollDirection = 1;  // reverse to go right
+        }
+        
         track.classList.remove('bouncing');
         updateCarousel();
       }, 400);  // match your 400ms CSS transition
@@ -582,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const moveLeft = () => {
       if (slideIndex > 0) {
-        slideIndex -= 0.005484375 * 8; // Reduced by another 25% to match new speed
+        slideIndex -= 0.0038390625 * 10; // 10x speed multiplier for arrows
         updateCarousel();
       }
     };
@@ -597,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const moveRight = () => {
       if (slideIndex < maxIndex) {
-        slideIndex += 0.005484375 * 8; // Reduced by another 25% to match new speed
+        slideIndex += 0.0038390625 * 10; // 10x speed multiplier for arrows
         updateCarousel();
       }
     };
