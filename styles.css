@@ -1850,7 +1850,7 @@ footer {
   
   /* Contact emoji heading for mobile */
   .contact-emoji-headline {
-    font-size: 4rem !important;
+    font-size: 2rem !important;
     margin: 1.5rem 0 !important;
     gap: 1.5rem !important;
     display: flex !important;
