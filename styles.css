@@ -2320,8 +2320,8 @@ footer {
     margin-bottom: 1rem !important;
   }
   
-  /* Mobile emojis styling - added here for higher specificity */
-  .hero-emoji-container {
+  /* Contact page emojis styling for mobile */
+  .contact-emoji-container {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -2329,21 +2329,10 @@ footer {
     margin: 1.5rem 0 !important;
   }
   
-  .hero-emoji {
+  .contact-emoji {
     font-size: 3rem !important;
     line-height: 1 !important;
     display: inline-block !important;
-  }
-  
-  /* Second part of hero subtitle on mobile */
-  .hero-subtitle-second {
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #fff !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    text-align: center !important;
-    font-family: Didot, serif !important;
   }
 }
 
@@ -2414,8 +2403,8 @@ section#team.section {
     line-height: 1 !important;
   }
   
-  /* Mobile emojis styling */
-  .hero-emoji-container {
+  /* Contact page emojis styling for mobile */
+  .contact-emoji-container {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -2423,29 +2412,38 @@ section#team.section {
     margin: 1.5rem 0 !important;
   }
   
-  .hero-emoji {
+  .contact-emoji {
     font-size: 3rem !important;
     line-height: 1 !important;
     display: inline-block !important;
   }
-  
-  /* Second part of hero subtitle on mobile */
-  .hero-subtitle-second {
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #fff !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-    text-align: center !important;
-    font-family: Didot, serif !important;
-  }
 }
 
-/* Hide emojis on desktop */
+/* Hide contact emojis on desktop */
 @media (min-width: 769px) {
-  .hero-emoji-container {
+  .contact-emoji-container {
     display: none !important;
   }
 }
 
-/* Default hide emoji container - removed to allow mobile override */
+/* Default hide contact emoji container */
+.contact-emoji-container {
+  display: none;
+}
+
+/* === FINAL MOBILE CONTACT EMOJI OVERRIDE === */
+@media (max-width: 768px) {
+  .contact-emoji-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin: 1.5rem 0 !important;
+  }
+  
+  .contact-emoji {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+  }
+}

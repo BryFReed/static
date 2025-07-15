@@ -64,31 +64,10 @@
             secureHeadline.innerHTML = '<span>Secure & Reliable</span>';
           }
           
-          // Make hero subtitle two parts with emojis on mobile
+          // Make hero subtitle one line on mobile
           const heroSubtitle = document.querySelector('.hero-subtitle');
           if (heroSubtitle) {
-            heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman.';
-          }
-          
-          // Emoji container will be shown by CSS media query
-          
-          // Add second part after emojis
-          const heroContent = document.querySelector('.hero-content');
-          if (heroContent) {
-            // Check if second part already exists
-            let secondPart = document.querySelector('.hero-subtitle-second');
-            if (!secondPart) {
-              secondPart = document.createElement('p');
-              secondPart.className = 'hero-subtitle-second';
-              secondPart.style.cssText = 'margin: 0; padding: 0; color: #fff; font-size: 1.1rem; line-height: 1.6; text-align: center; font-family: Didot, serif;';
-            }
-            secondPart.innerHTML = 'Access institutional-level strategies directly, and build wealth with true independence.';
-            
-            // Insert after emoji container
-            const emojiContainer = document.querySelector('.hero-emoji-container');
-            if (emojiContainer && emojiContainer.nextSibling !== secondPart) {
-              heroContent.insertBefore(secondPart, emojiContainer.nextSibling);
-            }
+            heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman. Access institutional-level strategies directly, and build wealth with true independence.';
           }
         } else {
           // Restore original text on desktop
@@ -106,14 +85,6 @@
           const heroSubtitle = document.querySelector('.hero-subtitle');
           if (heroSubtitle) {
             heroSubtitle.innerHTML = 'At Freeport, we believe advanced investing frameworks shouldn\'t require a middleman.<br>Access institutional-level strategies directly, and build wealth with true independence.';
-          }
-          
-          // Emoji container will be hidden by CSS media query
-          
-          // Remove second part on desktop
-          const secondPart = document.querySelector('.hero-subtitle-second');
-          if (secondPart) {
-            secondPart.remove();
           }
         }
       }
@@ -184,10 +155,6 @@
     <div class="hero-content">
       <h1 class="hero-headline">The Marketplace For<br>Structured Investments</h1>
               <p class="hero-subtitle">At Freeport, we believe advanced investing frameworks shouldn't require a middleman. Access institutional-level strategies directly, and build wealth with true independence.</p>
-              <div class="hero-emoji-container">
-                <span class="hero-emoji">📧</span>
-                <span class="hero-emoji">⛵</span>
-              </div>
               <div class="hero-buttons">
           <a class="cta" href="early-access.html">Early Access</a>
           <a class="cta login-cta" href="login.html">Set Sail</a>
