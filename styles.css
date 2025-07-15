@@ -2503,6 +2503,6 @@ section#team.section {
 
 @media (max-width: 768px) {
   .contact-emoji-headline {
-    font-size: 1rem !important;
+    font-size: 2rem !important;
   }
 }
