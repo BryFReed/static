@@ -2444,7 +2444,7 @@ section#team.section {
 
 /* Contact emoji heading styles */
 .contact-emoji-headline {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
@@ -2474,29 +2474,18 @@ section#team.section {
 
 /* === FINAL MOBILE CONTACT EMOJI OVERRIDE === */
 @media (max-width: 768px) {
-  .contact-emoji-container {
-    width: 100vw !important;
-    height: 40vw !important;
-    min-height: 180px !important;
-    max-height: 60vw !important;
+  .contact-emoji-headline {
+    font-size: 2rem !important;
+    margin: 1.5rem 0 !important;
+    gap: 1.5rem !important;
     display: flex !important;
-    align-items: stretch !important;
     justify-content: center !important;
-    gap: 2vw !important;
-    margin: 2vw 0 !important;
-    background: none !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    align-items: center !important;
   }
+  
   .contact-emoji {
-    font-size: 40vw !important;
-    width: 1em !important;
-    height: 1em !important;
-    display: block !important;
-    text-align: center !important;
+    font-size: inherit !important;
+    display: inline-block !important;
     line-height: 1 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    outline: none !important;
   }
 }
