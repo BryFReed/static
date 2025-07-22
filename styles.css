@@ -455,7 +455,7 @@ nav a.cta-nav:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -467,7 +467,7 @@ nav a.cta-nav:hover {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -608,7 +608,7 @@ nav a.cta-nav:hover {
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 1;
-  opacity: 1.0;
+  opacity: 0.8;
   pointer-events: none;
 }
 
